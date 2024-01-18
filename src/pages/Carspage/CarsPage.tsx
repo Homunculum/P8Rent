@@ -1,4 +1,4 @@
-// Productpage.tsx
+
 
 import React, { useEffect, useState } from 'react';
 import { CarsModel } from '../../models/responses/CarsModel';
