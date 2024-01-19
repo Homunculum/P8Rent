@@ -4,9 +4,9 @@ import { CarsModel } from '../../models/responses/CarsModel';
 import CarService from '../../services/CarService';
 import './Homepage.css';
 
+type Props = {}
 
-
-const HomePage: React.FC = () => {
+const HomePage: React.FC = (Props) => {
   const [filteredCars, setFilteredCars] = useState<CarsModel[]>([]);
   const [startYear, setStartYear] = useState<number>(2015);
   const [endYear, setEndYear] = useState<number>(2024);
@@ -14,15 +14,21 @@ const HomePage: React.FC = () => {
   const handleFilter = async () => {
     try {
       const response = await new CarService().getAll();
-      const filtered = response.data.filter((car) => car.year >= startYear && car.year <= endYear);
-      setFilteredCars(filtered);
+      if (response.data && Array.isArray(response.data.data)) {
+        const filtered = response.data.data.filter((car: CarsModel) => car.year >= startYear && car.year <= endYear);
+        setFilteredCars(filtered);
+      } else {
+        console.error('Error: response.data.data is not an array:', response.data.data);
+      }
     } catch (error) {
       console.error('Error filtering cars:', error);
     }
   };
+  
 
   useEffect(() => {
     handleFilter();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startYear, endYear]);
 
   return (<div className="container">

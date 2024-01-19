@@ -5,9 +5,9 @@ import { CarModel } from '../models/responses/CarModel';
 class CarService {
 
   // Java servisine get request yapacak olan metot
-  async getAll(): Promise<AxiosResponse<CarsModel[]>> {
+  async getAll(): Promise<AxiosResponse<any>> {
     try {
-      const response = await axios.get<CarsModel[]>('http://localhost:8080/api/cars/getAll');
+      const response = await axios.get<any>('http://localhost:8080/api/cars/getAll');
       return response;
     } catch (error) {
       // Hata durumunda burada işlem yapabilirsiniz.

@@ -15,8 +15,12 @@ const CarsPage: React.FC<Props> = () => {
   const handleFilter = async () => {
     try {
       const response = await new CarService().getAll();
-      const filtered = response.data.filter((car) => car.year >= startYear && car.year <= endYear);
-      setFilteredCars(filtered);
+      if (response.data && Array.isArray(response.data.data)) {
+        const filtered = response.data.data.filter((car: CarsModel) => car.year >= startYear && car.year <= endYear);
+        setFilteredCars(filtered);
+      } else {
+        console.error('Error: response.data.data is not an array:', response.data.data);
+      }
     } catch (error) {
       console.error('Error filtering cars:', error);
     }
