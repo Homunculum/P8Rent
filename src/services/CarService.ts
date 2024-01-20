@@ -15,15 +15,13 @@ class CarService {
       throw error; // İsterseniz hatayı yukarıya iletebilirsiniz.
     }
   }
-
-  async getById(id: number): Promise<AxiosResponse<CarModel>> {
+  async getById(id: number): Promise<AxiosResponse<{ data: CarModel }>> {
     try {
-      return axios.get<CarModel>('http://localhost:8080/api/cars/' +id);
-       
+      const response = await axios.get<{ data: CarModel }>(`http://localhost:8080/api/cars/${id}`);
+      return response;
     } catch (error) {
-      // Hata durumunda burada işlem yapabilirsiniz.
       console.error('Error fetching data:', error);
-      throw error; // İsterseniz hatayı yukarıya iletebilirsiniz.
+      throw error;
     }
   }
 
