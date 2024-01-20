@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Container } from "react-bootstrap";
+import Login from "../../pages/Login/Login";
 const Navbar: React.FC = () => {
   const authContext: any = useContext(AuthContext);
 
@@ -37,9 +38,7 @@ const Navbar: React.FC = () => {
             {!authContext.isAuthenticated && (
               <>
                 <li className="nav-item">
-                  <Link to="/login" className="nav-link">
-                    Giriş Yap
-                  </Link>
+                  <Login/>
                 </li>
                 <li className="nav-item">
                   <Link to="/register" className="nav-link">

@@ -1,28 +1,29 @@
 import { ReactElement } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Homepage from './pages/Homepage/Homepage';
-import Navbar from './components/Navbar/Navbar';
-import About from './pages/About/AboutPage';
 
+import Navbar from './components/Navbar/Navbar';
+import Homepage from './pages/Homepage/Homepage';
+import About from './pages/About/AboutPage';
 import Login from './pages/Login/Login';
 import CarsPage from './pages/CarsPage/CarsPage';
 import CarDetails from './pages/CarDetails/CarDetails';
-
-
+import { AuthProvider } from './contexts/AuthContext';
 
 function App(): ReactElement {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Homepage />}></Route>
-        <Route path='/cars' element={<CarsPage />}></Route>
-        <Route path='/About' element={<About />}></Route>
-        <Route path='/car/:id' element={<CarDetails />}></Route>
-        <Route path='/login' element={<Login />}></Route>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+          <Route path='/cars' element={<CarsPage />} />
+          <Route path='/About' element={<About />} />
+          <Route path='/car/:id' element={<CarDetails />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
+      </AuthProvider>
     </BrowserRouter>
-	);
+  );
 }
 
 export default App;
