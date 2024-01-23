@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { CarsModel } from '../../models/responses/CarsModel';
+import { CarModel } from '../../models/responses/CarModel';
 import { Link } from 'react-router-dom';
 import './CarCard.css';
 import Carimg from '../../assets/cards.jpg'
 
 
 interface CarCardProps {
-  car: CarsModel;
+  car: CarModel;
 }
 
 const CarCard: React.FC<CarCardProps> = ({ car }) => {
