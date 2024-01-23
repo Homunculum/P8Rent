@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { CarsModel } from '../models/responses/CarsModel';
+
 import { CarModel } from '../models/responses/CarModel';
 
 class CarService {

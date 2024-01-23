@@ -1,14 +1,14 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { CarsModel } from '../../models/responses/CarsModel';
+import { CarModel } from '../../models/responses/CarModel';
 import CarCard from '../../components/CarCard/CarCard';
 import CarService from '../../services/CarService';
 
 type Props = {};
 
 const CarsPage: React.FC<Props> = () => {
-  const [filteredCars, setFilteredCars] = useState<CarsModel[]>([]);
+  const [filteredCars, setFilteredCars] = useState<CarModel[]>([]);
   const [startYear, setStartYear] = useState<number>(2015);
   const [endYear, setEndYear] = useState<number>(2024);
 
@@ -16,7 +16,7 @@ const CarsPage: React.FC<Props> = () => {
     try {
       const response = await new CarService().getAll();
       if (response.data && Array.isArray(response.data.data)) {
-        const filtered = response.data.data.filter((car: CarsModel) => car.year >= startYear && car.year <= endYear);
+        const filtered = response.data.data.filter((car: CarModel) => car.year >= startYear && car.year <= endYear);
         setFilteredCars(filtered);
       } else {
         console.error('Error: response.data.data is not an array:', response.data.data);
