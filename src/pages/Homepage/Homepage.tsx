@@ -1,63 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import { CarCard } from '../../components';
-import { CarModel } from '../../models/responses/CarModel';
-import CarService from '../../services/CarService';
-import './Homepage.css';
+// HomePage.tsx
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-type Props = {}
+const HomePage: React.FC = () => {
+  const [filterStartDate, setFilterStartDate] = useState(new Date());
+  const [filterEndDate, setFilterEndDate] = useState(new Date());
+  const history = useNavigate();
 
-const HomePage: React.FC = (Props) => {
-  const [filteredCars, setFilteredCars] = useState<CarModel[]>([]);
-  const [startYear, setStartYear] = useState<number>(2015);
-  const [endYear, setEndYear] = useState<number>(2024);
-
-  const handleFilter = async () => {
-    try {
-      const response = await new CarService().getAll();
-      if (response.data && Array.isArray(response.data.data)) {
-        const filtered = response.data.data.filter((car: CarModel) => car.year >= startYear && car.year <= endYear);
-        setFilteredCars(filtered);
-      } else {
-        console.error('Error: response.data.data is not an array:', response.data.data);
-      }
-    } catch (error) {
-      console.error('Error filtering cars:', error);
-    }
+  const addDays = (date: Date, days: number) => {
+    const newDate = new Date(date);
+    newDate.setDate(newDate.getDate() + days);
+    return newDate;
   };
-  
 
   useEffect(() => {
-    handleFilter();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startYear, endYear]);
+   
+    setFilterEndDate(addDays(filterStartDate, 1));
+  }, [filterStartDate]);
 
-  return (<div className="container">
-    <div >
-  <h1>Filtered Cars</h1>
-  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-    <div>
-      <label>Start Year:</label>
-      <input type="number" value={startYear} onChange={(e) => setStartYear(Number(e.target.value))} />
-    </div>
-    <div>
-      <label>End Year:</label>
-      <input type="number" value={endYear} onChange={(e) => setEndYear(Number(e.target.value))} />
-    </div>
-    <button onClick={handleFilter}>Filter</button>
-  </div>
-  
-  <div className="row" >
-    {filteredCars.map((car) => (
-      <div key={car.id} className="col-md-3 mb-4">
-        <CarCard car={car} />
+  const handleStartDateChange = (date: Date) => {
+    setFilterStartDate(date);
+    setFilterEndDate(addDays(date, 1));
+  };
+
+  const handleFilter = () => {
+    const filteredCarsQuery = `?start=${filterStartDate.toISOString()}&end=${filterEndDate.toISOString()}`;
+    history(`/cars${filteredCarsQuery}`);
+  };
+
+  return (
+    <div className="container">
+      <h1>Car Filter</h1>
+      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <div>
+          <label>Start Date:</label>
+          <DatePicker
+            selected={filterStartDate}
+            minDate={new Date()}
+            dateFormat={'dd/MM/yyyy'}
+            onChange={handleStartDateChange}
+          />
+        </div>
+        <div>
+          <label>End Date:</label>
+          <DatePicker
+            selected={filterEndDate}
+            minDate={addDays(filterStartDate, 1)}
+            dateFormat={'dd/MM/yyyy'}
+            onChange={(date: Date) => setFilterEndDate(date)}
+          />
+        </div>
+        <button onClick={handleFilter}>Filter</button>
       </div>
-    ))}
-  </div>
-  </div>
-</div>
-);
+    </div>
+  );
 };
-
-
 
 export default HomePage;
