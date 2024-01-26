@@ -3,6 +3,7 @@ import {useParams } from 'react-router-dom';
 import CarService from '../../services/CarService';
 import { CarModel } from '../../models/responses/CarModel';
 import Carimg from '../../assets/cards.jpg'
+import './CarDetails.css'
 
 
 const CarDetail: React.FC = () => {
@@ -32,23 +33,27 @@ setCar(carData);
 
   return (
     <div className="container">
-      <div className="row">
-    {car && car ? (
-      
-      <div className="col-6">
-        <h2>{car.modelResponse?.name}</h2>
-        <img src={Carimg} alt={car.modelResponse.name} style={{ width: '100%' }} />
-        <p>Daily Price: {car.daily_price}</p>
-        <p>Kilometer: {car.kilometer}</p>
-        <p>Year: {car.year}</p>
-        <p>Color: {car.colorResponse?.name}</p>
+      <div className="row justify-content-center">
+        {car && car ? (
+          <div className="col-6">
+            <div className="card">
+              <img src={Carimg} className="card-img-top" alt={car.modelResponse?.name} />
+              <div className="card-body">
+                <h2 className="card-title">{car.modelResponse?.name}</h2>
+                <p className="card-text">Daily Price: {car.daily_price}</p>
+                <p className="card-text">Kilometer: {car.kilometer}</p>
+                <p className="card-text">Year: {car.year}</p>
+                <p className="card-text">Color: {car.colorResponse?.name}</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
-    ) : (
-      <p>Loading...</p>
-    )}
     </div>
-  </div>
   );
 };
+
 
 export default CarDetail;

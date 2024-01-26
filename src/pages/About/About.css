@@ -1,5 +1,6 @@
 .team-container {
   display: flex;
+  padding-top: 8rem;
 }
 
 .person-card {

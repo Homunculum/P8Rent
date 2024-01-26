@@ -9,21 +9,21 @@ const About: React.FC = () => {
 
   return (
     <div className="team-container">
-  {peopleData.map((person) => (
-    <div key={person.id} className="person-card" style={{ width: "100%" }}>
-      <img src={person.image} alt={person.name} style={{ width: "100%" }} />
-      <div>
-        <h2>{person.name}</h2>
-        <p style={{ whiteSpace: "pre-wrap" }}>{person.about}</p>
+    {peopleData.map((person) => (
+      <div key={person.id} className="person-card" style={{ width: "100%" }}>
+        <img src={person.image} alt={person.name} style={{ width: "100%" }} />
+        <div>
+          <h2>{person.name}</h2>
+          <p style={{ whiteSpace: "pre-wrap" }}>{person.about}</p>
+        </div>
+        <div className="linkedin-button-container">
+          <button onClick={() => handleLinkedInClick(person.linkedin)}>
+            LinkedIn'e Git
+          </button>
+        </div>
       </div>
-      <div className="linkedin-button-container">
-        <button onClick={() => handleLinkedInClick(person.linkedin)}>
-          LinkedIn'e Git
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
+    ))}
+  </div>
   );
 };
 export default About;

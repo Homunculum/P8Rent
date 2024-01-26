@@ -24,8 +24,6 @@ class CarService {
       throw error;
     }
   }
-
-
 }
 
 export default CarService;

@@ -1,0 +1,213 @@
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 5px rgb(119, 113, 113);
+  z-index: 1000;
+  background: white;
+}
+
+
+.dropdown-menu {
+  background: var(--greyColor);
+  border: none;
+  padding: 1rem 2rem;
+  margin: 3rem -1.5rem;
+  width: 190px;
+}
+.dropdown-menu .text {
+  margin: 0.5rem 0.25rem;
+}
+.dropdown-menu .text .icon {
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 400px) {
+  .navbar {
+    position: absolute;
+    background: var(--secondaryColor);
+    width: 50%;
+    top: -100rem;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    text-align: center;
+    padding: 1rem;
+    transition: 0.3s ease;
+    z-index: 2000;
+  }
+  .closeIcon {
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--secondaryColor);
+    color: var(--primaryColor);
+    padding: 3px;
+    border-radius: 50%;
+    font-size: 35px;
+  }
+  .closeIcon:hover {
+    color: red;
+  }
+  .menu {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .menu .listItem {
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .menu .listItem a {
+    font-size: 15px;
+    color: var(--greyColor);
+    text-align: center;
+  }
+  .menu .listItem a:hover {
+    color: var(--whiteColor);
+  }
+  .menu .listItem:hover {
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    transition: 0.3s ease;
+  }
+}
+.signUp {
+  gap: 0.5rem;
+}
+.signUp .textAction {
+  padding: 3px 10px;
+  background: var(--primaryColor);
+  border-radius: 3px;
+  color: var(--whiteColor);
+  cursor: pointer;
+  font-size: 14px;
+  width: 120px;
+  text-align: left;
+}
+.signUp .textAction:hover {
+  background: var(--secondaryColor);
+  color: var(--blackColor);
+}
+.signUp .text {
+  padding: 3px 10px;
+  background: var(--primaryColor);
+  border-radius: 3px;
+  color: var(--whiteColor);
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+}
+.signUp .text:hover {
+  background: var(--secondaryColor);
+  color: var(--blackColor);
+}
+.signUp .dropdown {
+  width: 150px;
+  padding: 6px 4px;
+  text-align: center;
+}
+.signUp .text-login {
+  padding: 3px 10px;
+  background: red;
+  border-radius: 3px;
+  color: var(--primaryColor);
+  cursor: pointer;
+  font-size: 14px;
+}
+.signUp .text-login:hover {
+  color: var(--secondaryColor);
+}
+.signUp .toggleNavbarIcon {
+  background: none;
+  color: var(--primaryColor);
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.showNavbar {
+  top: 7rem;
+  transition: 0.5s ease;
+  width: 250px;
+}
+
+.addBg {
+  justify-content: space-around;
+  background: var(--pureWhiteColor);
+  opacity: 95%;
+}
+
+
+
+@media screen and (min-width: 770px) {
+  .header .navbar .closeIcon {
+    display: none;
+  }
+  .header .navbar .menu {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+  .header .navbar .menu .listItem {
+    padding: 0.3rem 1rem;
+    border-radius: 3px;
+  }
+  .header .navbar .menu .listItem a {
+    color: var(--primaryColor);
+    font-size: 15px;
+  }
+  .header .navbar .menu .listItem:hover {
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    transition: 0.3s ease;
+  }
+  .header .navbar .menu .listItem:hover a {
+    color: var(--whiteColor);
+  }
+  .header .signUp .text {
+    padding: 6px 10px;
+  }
+  .header .signUp .toggleNavbarIcon {
+    display: none;
+  }
+  .navbarProfileImg {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (min-width: 1064px) {
+  .header {
+    padding: 1rem 7rem;
+  }
+  .header .logoDiv img {
+   
+    height: 100px;
+  }
+  .header .navbar .menu .listItem a {
+    font-size: 20px;
+  }
+  .header .signUp .text {
+    font-size: 18px;
+  }
+  .addBg {
+    padding: 0.5rem 7rem 0;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .header .navbar .menu .listItem {
+    margin: 0 1.8rem;
+  }
+  .header .navbar .menu .listItem a {
+    font-size: 20px;
+  }
+}

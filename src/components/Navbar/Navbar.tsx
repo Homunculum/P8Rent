@@ -1,70 +1,105 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
+import { IoIosCloseCircle, IoIosMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Container } from "react-bootstrap";
+import {  NavDropdown } from "react-bootstrap";
 import Login from "../../pages/Login/Login";
+import logo from "../../assets/logo.png";
+
 const Navbar: React.FC = () => {
+  const [navbar, setNavbar] = useState("navbar");
+
+  const showNavbar = () => {
+    setNavbar("navbar showNavbar");
+  };
+  const removeNavbar = () => {
+    setNavbar("navbar");
+  };
+
+  const [header, setHeader] = useState("header");
+  const addBg = () => {
+    if (window.scrollY >= 40) {
+      setHeader("header addBg");
+    }
+  };
+
   const authContext: any = useContext(AuthContext);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <Container>
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link to="/" className="navbar-brand">
-              <div className="logo-container">P8Rent</div>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link mx-2 active" aria-current="page" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link mx-2" to="/cars">
-              Cars
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link mx-2" to="/About">
-              About
-            </Link>
-          </li>
-        </ul>
+    <>
+      <div className={header}>
+        <div className="logoDiv">
+          <Link to="/" className="link">
+            <img src={logo} alt="rent2go-logo" className="logo" />
+          </Link>
+        </div>
 
-        <div className="auth navbar-nav ml-auto" id="navbarText">
-          <ul className="navbar-nav">
-            {!authContext.isAuthenticated && (
-              <>
-                <li className="nav-item">
+        <div className={navbar}>
+          <ul className="menu">
+            <li onClick={removeNavbar} className="listItem">
+              <Link to="/" className="link">
+                Home
+              </Link>
+            </li>
+            <li onClick={removeNavbar} className="listItem">
+              <Link to="/Coverage" className="link">
+              Coverages
+              </Link>
+            </li>
+            <li onClick={removeNavbar} className="listItem">
+              <Link to="/about" className="link">
+                About
+              </Link>
+            </li>
+            <li onClick={removeNavbar} className="listItem">
+              <Link to="/contact" className="link">
+                Contact
+              </Link>
+            </li>
+          </ul>
+          <IoIosCloseCircle className="icon closeIcon" onClick={removeNavbar} />
+        </div>
+
+        <div className="signUp flex">
+          {authContext.isAuthenticated ? (
+            <>
+              <NavDropdown
+                className="textAction text"
+                title={
+                  <Link className="text btn" to="/profile">
+                    My Account
+                  </Link>
+                }
+                id="basic-nav-dropdown"
+              >
+                <Link className=" text textAction btn" to="/profile">
+                  {" "}
+                  Profile
+                </Link>
+
+                <Link className="  btn text textAction" to="/cart">
+                  Reservation
+                </Link>
+                {authContext.isAuthenticated && (
+                <Link className="text textAction btn" onClick={() => {
+                  authContext.setIsAuthenticated(false);
+                }} to="/">
+                  Log Out
+                </Link>)}
+              </NavDropdown>
+            </>
+          ) : (
+            <>
+             <li className="text btn">
                   <Login/>
                 </li>
-                <li className="nav-item">
-                  <Link to="/register" className="nav-link">
-                    Kayıt Ol
-                  </Link>
-                </li>
-              </>
-            )}
-
-            {authContext.isAuthenticated && (
-              <li className="nav-item">
-                <Link
-                  onClick={() => {
-                    authContext.setIsAuthenticated(false);
-                  }}
-                  to="/"
-                  className="nav-link"
-                >
-                  Çıkış Yap
-                </Link>
-              </li>
-            )}
-          </ul>
+            </>
+          )}
+          <IoIosMenu className="icon toggleNavbarIcon" onClick={showNavbar} />
         </div>
-      </Container>
-    </nav>
+      </div>
+    </>
   );
 };
 

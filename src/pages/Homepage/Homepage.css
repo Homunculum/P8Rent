@@ -1,1 +1,5 @@
 @import url('../../components/CarCard/CarCard.css');
+.container {
+    padding-top: 8rem;
+  
+  }
