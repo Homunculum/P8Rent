@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage/Homepage';
 import About from './pages/About/AboutPage';
-import Login from './pages/Login/Login';
+import Login from './components/Login/Login';
 import CarsPage from './pages/CarsPage/CarsPage';
 import CarDetails from './pages/CarDetails/CarDetails';
 import { AuthProvider } from './contexts/AuthContext';

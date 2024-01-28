@@ -6,11 +6,11 @@ import './CarCard.css';
 
 
 
-interface CarCardProps {
+interface FilterCarCardProps {
   car: CarModel;
 }
 
-const CarCard: React.FC<CarCardProps> = ({ car }) => {
+const FilterCarCard: React.FC<FilterCarCardProps> = ({ car }) => {
   return (
     <div className="card card--car card--car--new offers__card">
     <div className="card-body d-flex flex-column h-100">
@@ -22,10 +22,10 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
       <p className="card-text">Color: {car.colorResponse.name}</p>
       <Link
             className="btn btn-success"
-            to={`/car/${car.id}`}  // Use template literal to include the product ID
+            to={`/car/${car.id}`}  
             role="button"
           >
-            Detail
+            Kirala
           </Link>
     </div>
   </div>
@@ -33,4 +33,4 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
 };
 
 
-export default CarCard;
+export default FilterCarCard;

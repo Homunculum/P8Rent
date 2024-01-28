@@ -4,8 +4,8 @@ import { IoIosCloseCircle, IoIosMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import {  NavDropdown } from "react-bootstrap";
-import Login from "../../pages/Login/Login";
-import logo from "../../assets/logo.png";
+import Login from "../Login/Login";
+
 
 const Navbar: React.FC = () => {
   const [navbar, setNavbar] = useState("navbar");
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       <div className={header}>
         <div className="logoDiv">
           <Link to="/" className="link">
-            <img src={logo} alt="rent2go-logo" className="logo" />
+            <img src={"assets/logo.png"} alt="rent2go-logo" className="logo" />
           </Link>
         </div>
 
