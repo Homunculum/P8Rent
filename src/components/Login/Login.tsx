@@ -59,7 +59,7 @@ const Login = (props: Props) => {
 				<FormikInput type="email" label="Email Adresi" name="email" />
 				<FormikInput type="password" label="Şifre" name="password" />
 				<Button variant="primary" type="submit">
-				  Giriş Yap
+				  Login
 				</Button>
 			  </Form>
 			</Formik>

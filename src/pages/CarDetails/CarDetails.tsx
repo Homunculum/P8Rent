@@ -37,7 +37,7 @@ setCar(carData);
         {car && car ? (
           <div className="col-6">
             <div className="card">
-              <img src={"/CarImage/car.jpg"} className="card-img-top" alt={car.modelResponse?.name} />
+              <img src={"assets/CarImage/car.jpg"} className="card-img-top" alt={car.modelResponse?.name} />
               <div className="card-body">
                 <h2 className="card-title">{car.modelResponse?.name}</h2>
                 <p className="card-text">Daily Price: {car.daily_price}</p>

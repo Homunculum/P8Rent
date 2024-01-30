@@ -2,7 +2,7 @@
 import React from 'react';
 import { CarModel } from '../../models/responses/CarModel';
 import { Link } from 'react-router-dom';
-import './CarCard.css';
+import './FilterCarCard.css';
 
 
 
@@ -25,7 +25,7 @@ const FilterCarCard: React.FC<FilterCarCardProps> = ({ car }) => {
             to={`/car/${car.id}`}  
             role="button"
           >
-            Kirala
+            Hemen Kirala
           </Link>
     </div>
   </div>

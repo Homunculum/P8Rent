@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { RentalModel } from '../../models/responses/RentalModel';
 import RentalService from '../../services/RentalService';
-import CarCard from '../../components/CarCard/CarCard';
 import "./CarsPage.css"
+import FilterCarCard from '../../components/FilterCarCard/FilterCarCard';
 
 const CarsPage: React.FC = () => {
   // State hook'ları
@@ -23,7 +23,7 @@ const CarsPage: React.FC = () => {
     // URL'deki parametreleri al
     const params = new URLSearchParams(location.search);
     const filterStartDate = new Date(params.get('start') || '');
-    const filterEndDate = new Date(params.get('end') || '');
+    
 
     try {
       // Tüm araçları getir
@@ -117,7 +117,7 @@ const CarsPage: React.FC = () => {
       <div className="row">
         {filteredRentals.map((rental) => (
           <div key={rental.carResponse.id} className="col-md-3 mb-4">
-            <CarCard car={rental.carResponse} />
+            <FilterCarCard car={rental.carResponse} />
           </div>
         ))}
       </div>
