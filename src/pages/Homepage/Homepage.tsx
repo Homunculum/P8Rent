@@ -1,4 +1,4 @@
-// HomePage.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import CarService from '../../services/CarService';
 import CarCard from '../../components/CarCard/CarCard';
 import { CarModel } from '../../models/responses/CarModel';
+import './Homepage.css'
 
 const HomePage: React.FC = () => {
   const [filterStartDate, setFilterStartDate] = useState(new Date());
@@ -62,10 +63,10 @@ const HomePage: React.FC = () => {
   return (
     <div className="container">
   <h1 className='text-center'>Car Filter</h1>
-  <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <div className="card" style={{ width: '50%', padding: '90px', position: 'relative', overflow:'visible' }}>
-      <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-        <div style={{ position: 'relative'}}>
+  <div className='filter-card-container'>
+    <div className="card" >
+      <div className='date-input-container'>
+        <div className='date-input-div'>
           <label>Start Date:</label>
           <DatePicker
             selected={filterStartDate}
@@ -74,7 +75,7 @@ const HomePage: React.FC = () => {
             onChange={handleStartDateChange}
           />
         </div>
-        <div style={{ position: 'relative' }}>
+        <div className='date-input-div'>
           <label>End Date:</label>
           <DatePicker
             selected={filterEndDate}
@@ -83,15 +84,15 @@ const HomePage: React.FC = () => {
             onChange={(date: Date) => setFilterEndDate(date)}
           />
         </div>
-        <button onClick={handleFilter}>Filter</button>
       </div>
+      <div className="btn-container"><button onClick={handleFilter}>Filter</button></div>
     </div>
   </div>
 
   <h1 className='text-center'>All Cars</h1>
   <div className="row">
     {cars.map((car) => (
-      <div key={car.id} className="col-md-3 mb-4">
+      <div key={car.id} className="col-md-6 mb-4">
         <CarCard car={car} />
       </div>
     ))}

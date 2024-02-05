@@ -1,5 +1,85 @@
-@import url('../../components/CarCard/CarCard.css');
+
 .container {
-    padding-top: 8rem;
+    padding: 8rem 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
   
+  }
+  .container h1{
+    color: blue;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    line-height: 5rem;
+  }
+  .filter-card-container{
+    display: 'flex';
+    background-color: aqua;
+    padding-bottom: 11rem;
+    width: 100%;
+  }
+
+  .filter-card-container .card{
+    padding: 2rem 4rem;
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .filter-card-container .card .date-input-container{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.5rem 1rem;
+    gap: 2rem;
+    
+  }
+  .filter-card-container .card .date-input-container .date-input-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  .filter-card-container .card .date-input-container .date-input-div input{
+    
+    padding: 0.25rem 0.5rem;
+    background: darkgoldenrod!important;
+    border-radius: 0.5rem;
+    color: rgb(54, 67, 122);
+    font-weight: 500;
+    font-size: 18px;
+
+  }
+  .react-datepicker{
+    border: none;
+  }
+  .filter-card-container .card .btn-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 2rem;
+  }
+  .filter-card-container .card .btn-container button{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: rgb(54, 86, 146);
+    color: bisque;
+    border-radius: 0.5rem;
+    font-size: 18px;
+    padding: 0.25rem 2rem;
+    font-weight: 500;
+  }
+  .filter-card-container .card .date-input-container .date-input-div label{
+    font-size: 16px;
+    color: blue;
+    font-weight: 500
+    ;
   }

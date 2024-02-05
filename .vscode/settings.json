@@ -1,4 +1,5 @@
 {
     "commentTranslate.targetLanguage": "tr",
-    "commentTranslate.source": "Google"
+    "commentTranslate.source": "Google",
+    "editor.fontSize" : 16
 }

@@ -1,42 +1,53 @@
-.card {
+.vehicleCard{
     background-color: #ffffff; 
-    border-radius: 8px; /* Kart köşe yuvarlama */
+    border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    
+    border: none!important;
     transition: transform 0.3s; 
+    display: flex;
+    flex-direction: column;
+    
   }
   
-  .card:hover {
+  .vehicleCard:hover {
     transform: scale(1.05); 
   }
-  
-  .card-body {
-    padding: 20px;
+  .vehicleCard .vehicle-card-header-div{
+    text-align: center;
+    padding-left: 1rem;
+    padding-top: 1rem;
   }
-  
-  .card__title {
-    margin-bottom: 15px;
+  .vehicleCard .vehicle-card-header-div h4{
+    color: rgb(70, 17, 33);
+
   }
-  
-  .card-text {
-    margin-bottom: 10px;
+  .vehicleCard  .vehicle-card-img-container{
+    padding: 0.5rem;
   }
-  
-  .btn {
-    background-color: #300c74; /* Buton rengi */
-    color: #ffffff; /* Buton metin rengi */
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  .vehicleCard  .vehicle-card-img-container img{
+    width: 100%;
+    object-fit: cover;
+
   }
-  
-  .btn:hover {
-    background-color: #3c20b8; /* Buton üzerine gelince rengi değiştirme */
+  .vehicleCard .content-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: left;
+    align-items: end;
+    padding-bottom: 1rem;
+
   }
-  
-  .card-link {
-    text-decoration: none;
+  .vehicleCard .content-container .vehicle-card-description-container{
+    color: rgb(116, 94, 67);
   }
-  
+  .vehicleCard .content-container .vehicle-card-btn-container{
+      
+  }
+  .vehicleCard .content-container .vehicle-card-btn-container a{
+    background: #a73737;
+    color: aliceblue;
+
+
+      
+  }

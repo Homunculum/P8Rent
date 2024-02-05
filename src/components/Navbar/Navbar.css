@@ -25,7 +25,17 @@
   margin-right: 0.5rem;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 425px) {
+  .header .logoDiv {
+   
+    width: 100px;
+    height: auto;
+  }
+  .header .logoDiv img {
+   
+    width: 100%;
+  
+  }
   .navbar {
     position: absolute;
     background: var(--secondaryColor);
@@ -84,6 +94,11 @@
 }
 .signUp {
   gap: 0.5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+
 }
 .signUp .textAction {
   padding: 3px 10px;
@@ -189,9 +204,15 @@
   .header {
     padding: 1rem 7rem;
   }
+  .header .logoDiv {
+   
+    width: 100px;
+    height: auto;
+  }
   .header .logoDiv img {
    
-    height: 100px;
+    width: 100%;
+  
   }
   .header .navbar .menu .listItem a {
     font-size: 20px;
