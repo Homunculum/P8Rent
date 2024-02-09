@@ -5,30 +5,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blueviolet;
+    background-color: rgb(72, 107, 121);
   
   }
   .container h1{
-    color: blue;
+    color: var(--whiteColor);;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     line-height: 5rem;
+    background-color:rgb(72, 107, 121);
+    text-decoration-line: underline;
+    
   }
   .filter-card-container{
     display: 'flex';
-    background-color: aqua;
-    padding-bottom: 11rem;
+    background-color: rgb(72, 107, 121);
+    padding-bottom: 1rem;
     width: 100%;
+    border-radius: 2rem;
   }
 
   .filter-card-container .card{
-    padding: 2rem 4rem;
-    margin: 1rem 0rem;
+    padding: 2rem;
+    margin-bottom: 7rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    background-color: rgb(72, 107, 121);
   }
 
   .filter-card-container .card .date-input-container{
@@ -49,9 +53,9 @@
   .filter-card-container .card .date-input-container .date-input-div input{
     
     padding: 0.25rem 0.5rem;
-    background: darkgoldenrod!important;
+    background: var(--whiteColor);
     border-radius: 0.5rem;
-    color: rgb(54, 67, 122);
+    color: rgb(72, 107, 121);
     font-weight: 500;
     font-size: 18px;
 
@@ -70,8 +74,8 @@
     width: 100%;
     border: none;
     outline: none;
-    background-color: rgb(54, 86, 146);
-    color: bisque;
+    background-color: var(--secondaryColor);
+    color: var(--whiteColor);
     border-radius: 0.5rem;
     font-size: 18px;
     padding: 0.25rem 2rem;
@@ -79,7 +83,58 @@
   }
   .filter-card-container .card .date-input-container .date-input-div label{
     font-size: 16px;
-    color: blue;
+    color: var(--whiteColor);
     font-weight: 500
     ;
+  }
+
+  @media screen and (max-width: 425px) {
+    .filter-card-container{
+      display: flex;
+      background-color: rgb(72, 107, 121);
+      padding-bottom: 1rem;
+      width: 100%;
+      border-radius: 2rem;
+    }
+  
+    .filter-card-container .card{
+      
+      padding: 1rem;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(72, 107, 121);
+    }
+    .filter-card-container .card .date-input-container{
+    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0.5rem 1rem;
+      gap: 2rem;
+      
+    }
+    .filter-card-container .card .date-input-container .date-input-div{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+    .filter-card-container .card .date-input-container .date-input-div input{
+      
+      padding: 0.25rem 0.5rem;
+      background: var(--whiteColor);
+      border-radius: 0.5rem;
+      color: rgb(72, 107, 121);
+      font-weight: 500;
+      font-size: 18px;
+  
+    }
+    .react-datepicker{
+      border: none;
+    }
+    
   }

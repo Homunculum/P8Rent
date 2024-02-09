@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       <div className={header}>
         <div className="logoDiv">
           <Link to="/" className="link">
-            <img src={"assets/logo.png"} alt="rent2go-logo" className="logo" />
+            <img src={"/assets/logo.svg"} alt="p8rent-logo" className="logo" />
           </Link>
         </div>
 

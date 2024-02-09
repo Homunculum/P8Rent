@@ -1,33 +1,40 @@
 .vehicleCard{
-    background-color: #ffffff; 
+    background-color: #992a2a; 
     border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border: none!important;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
+    
     transition: transform 0.3s; 
     display: flex;
     flex-direction: column;
+    border-radius: 1rem;
+    
     
   }
   
   .vehicleCard:hover {
     transform: scale(1.05); 
+    
   }
   .vehicleCard .vehicle-card-header-div{
     text-align: center;
     padding-left: 1rem;
     padding-top: 1rem;
+    background-color: var(--secondaryColor);
   }
   .vehicleCard .vehicle-card-header-div h4{
-    color: rgb(70, 17, 33);
+    color: aliceblue;
+    
 
   }
   .vehicleCard  .vehicle-card-img-container{
     padding: 0.5rem;
+    background-color: var(--secondaryColor)
   }
   .vehicleCard  .vehicle-card-img-container img{
     width: 100%;
     object-fit: cover;
-
+    border-radius: 8px; 
+    
   }
   .vehicleCard .content-container{
     display: flex;
@@ -36,16 +43,18 @@
     text-align: left;
     align-items: end;
     padding-bottom: 1rem;
+    background-color: var(--secondaryColor)
 
   }
   .vehicleCard .content-container .vehicle-card-description-container{
-    color: rgb(116, 94, 67);
+    color: var(--whiteColor);
   }
   .vehicleCard .content-container .vehicle-card-btn-container{
+    display: flex;
       
   }
   .vehicleCard .content-container .vehicle-card-btn-container a{
-    background: #a73737;
+    background-color: rgb(72, 107, 121);
     color: aliceblue;
 
 

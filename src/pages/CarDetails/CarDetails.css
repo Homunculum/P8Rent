@@ -1,4 +1,55 @@
-.container {
-    padding-top: 13rem;
-  }
+.vehicleDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s;
+  padding: 10rem; 
+}
+
+.vehicleDetails:hover {
+  transform: scale(1.05);
+}
+
+.vehicleDetails .vehicle-details-header-div {
+  width: 100%; /* Tam genişlik */
+  text-align: center;
+}
+
+.vehicleDetails .vehicle-details-header-div h4 {
+  color: var(--whiteColor);
+}
+
+.vehicleDetails .vehicle-details-img-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
   
+}
+
+.vehicleDetails .vehicle-details-img-container img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 8px; 
+  
+}
+
+.vehicleDetails .content-container {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.vehicleDetails .details-text {
+  color: var(--whiteColor);
+  
+  flex-direction: row;
+  justify-content: space-around;
+}

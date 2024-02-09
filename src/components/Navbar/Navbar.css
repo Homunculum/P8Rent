@@ -7,7 +7,7 @@
   padding: 1.5rem 2rem;
   box-shadow: 0 2px 5px rgb(119, 113, 113);
   z-index: 1000;
-  background: white;
+  background-color: var(--secondaryColor);
 }
 
 
@@ -30,6 +30,7 @@
    
     width: 100px;
     height: auto;
+    
   }
   .header .logoDiv img {
    
