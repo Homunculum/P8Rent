@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import CarsPage from './pages/CarsPage/CarsPage';
 import CarDetails from './pages/CarDetails/CarDetails';
 import { AuthProvider } from './contexts/AuthContext';
+import Contact from './pages/Contact/Contact';
 
 function App(): ReactElement {
   return (
@@ -20,6 +21,7 @@ function App(): ReactElement {
           <Route path='/About' element={<About />} />
           <Route path='/car/:id' element={<CarDetails />} />
           <Route path='/login' element={<Login />} />
+          <Route path="/contact" element={<Contact />}/>
         </Routes>
       </AuthProvider>
     </BrowserRouter>

@@ -41,7 +41,7 @@
     flex-direction: row;
     justify-content: space-around;
     text-align: left;
-    align-items: end;
+    align-items: flex-end;
     padding-bottom: 1rem;
     background-color: var(--secondaryColor)
 

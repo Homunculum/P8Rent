@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
-import { object, string } from "yup";
 import { Form, Formik } from "formik";
 import FormikInput from "../FormikInput/FormikInput";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Link } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
 import * as Yup from "yup";
 

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { RentalModel } from '../models/responses/RentalModel';
+
 
 class RentalService {
   async getAll(): Promise<AxiosResponse<any>> {
