@@ -22,7 +22,7 @@
     background-color: var(--secondaryColor);
   }
   .vehicleCard .vehicle-card-header-div h4{
-    color: aliceblue;
+    color: var(--whiteColor);
     
 
   }
@@ -55,8 +55,10 @@
   }
   .vehicleCard .content-container .vehicle-card-btn-container a{
     background-color: rgb(72, 107, 121);
-    color: aliceblue;
-
-
-      
+    color: var(--whiteColor);   
+  }
+  .vehicleCard .content-container .vehicle-card-btn-container a:hover{
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    transition: 0.3s ease;   
   }

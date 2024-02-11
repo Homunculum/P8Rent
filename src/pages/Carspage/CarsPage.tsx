@@ -104,20 +104,22 @@ const CarsPage: React.FC = () => {
           </select>
         </div>
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder={`Min Price: ${minPrice}`} aria-label="MinPrice" aria-describedby="minPriceButton" onChange={(e) => setSelectedMinPrice(Number(e.target.value))} />
+          <input type="text" className="form-control" placeholder={`Min Price: ${minPrice}`} aria-label="MinPrice" 
+          aria-describedby="minPriceButton" onChange={(e) => setSelectedMinPrice(Number(e.target.value))} />
         </div>
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder={`Max Price: ${maxPrice}`} aria-label="MaxPrice" aria-describedby="maxPriceButton" onChange={(e) => setSelectedMaxPrice(Number(e.target.value))} />
+          <input type="text" className="form-control" placeholder={`Max Price: ${maxPrice}`} aria-label="MaxPrice" 
+          aria-describedby="maxPriceButton" onChange={(e) => setSelectedMaxPrice(Number(e.target.value))} />
         </div>
         <div className="input-group mb-3">
-          <button className="btn btn-outline-secondary" type="button" onClick={handleFilterButtonClick}>Filter</button>
+          <button type="button" onClick={handleFilterButtonClick}>Filter</button>
         </div>
       </div>
 
       {/* Filtrelenmiş araçlar */}
       <div className="row">
         {filteredRentals.map((rental) => (
-          <div key={rental.carResponse.id} className="col-md-3 mb-4">
+          <div key={rental.carResponse.id} className="col-md-4 mb-4">
             <FilterCarCard car={rental.carResponse} />
           </div>
         ))}

@@ -32,7 +32,7 @@ const Login = (props: Props) => {
   
 	return (
 	  <>
-		<Button variant="primary" onClick={handleShow}>
+		<Button  variant="primary" onClick={handleShow}>
 		  Giriş Yap
 		</Button>
   

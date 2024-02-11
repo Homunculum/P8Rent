@@ -1,1 +1,5 @@
 @import url('../../components/Navbar/Navbar.css');
+.login .button{
+    background-color: var(--primaryColor);
+    color: brown;
+}

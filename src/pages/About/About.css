@@ -40,7 +40,7 @@
   border-radius: 15%;
   border: none;
   background-color: var(--secondaryColor);
-  color: aliceblue;
+  color: var(--whiteColor);
   padding: 8px 16px; 
 }
 

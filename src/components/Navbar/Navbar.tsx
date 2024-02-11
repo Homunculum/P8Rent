@@ -43,14 +43,10 @@ const Navbar: React.FC = () => {
                 Home
               </Link>
             </li>
-            <li onClick={removeNavbar} className="listItem">
-              <Link to="/Coverage" className="link">
-              Coverages
-              </Link>
-            </li>
+            
             <li onClick={removeNavbar} className="listItem">
               <Link to="/about" className="link">
-                About
+                About Us
               </Link>
             </li>
             <li onClick={removeNavbar} className="listItem">

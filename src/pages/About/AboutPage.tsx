@@ -1,6 +1,7 @@
 import React from "react";
 import peopleData from "./peopleData";
 import "./About.css";
+import { FaLinkedin } from "react-icons/fa";
 
 const About: React.FC = () => {
   const handleLinkedInClick = (linkedin:any) => {
@@ -18,7 +19,7 @@ const About: React.FC = () => {
         </div>
         <div className="linkedin-button-container">
           <button onClick={() => handleLinkedInClick(person.linkedin)}>
-            LinkedIn'e Git
+          <FaLinkedin  /> LinkedIn'e Git
           </button>
         </div>
       </div>
