@@ -10,18 +10,20 @@ import CarDetails from './pages/CarDetails/CarDetails';
 import { AuthProvider } from './contexts/AuthContext';
 import Contact from './pages/Contact/Contact';
 
+
 function App(): ReactElement {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Navbar />
-        <Routes>
+        <Routes>/profile
           <Route path='/' element={<Homepage />} />
           <Route path='/cars' element={<CarsPage />} />
           <Route path='/About' element={<About />} />
           <Route path='/car/:id' element={<CarDetails />} />
           <Route path='/login' element={<Login />} />
           <Route path="/contact" element={<Contact />}/>
+          
         </Routes>
       </AuthProvider>
     </BrowserRouter>

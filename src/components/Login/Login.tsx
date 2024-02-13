@@ -6,18 +6,23 @@ import * as Yup from "yup";
 import { AuthContext } from "../../contexts/AuthContext";
 import { AuthService } from "../../services/AuthService";
 
+
 const Login = () => {
+ 
   const authContext: any = useContext(AuthContext);
+  
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  
   const initialValues = {
     email: "",
     password: "",
   };
 
+  
   const validationSchema = Yup.object({
     email: Yup.string()
       .required("Email alanı zorunludur.")
@@ -29,18 +34,23 @@ const Login = () => {
       .min(8, "En az 8 haneli olmak zorunda"),
   });
 
-  const handleSubmit = async (values: any, actions: any) => {
-    try {
-      const { email, password } = values;
-      const token = await AuthService.login(email, password);
-      authContext.setIsAuthenticated(true);
-      handleClose();
-      actions.setSubmitting(false);
-    } catch (error) {
-      console.error(error);
-      actions.setSubmitting(false);
-    }
-  };
+const handleSubmit = async (values: any, actions: any) => {
+  try {
+    const { email, password } = values;
+   
+    const token = await AuthService.login(email, password);
+
+    authContext.setIsAuthenticated(true);
+    
+    
+    handleClose();
+    actions.setSubmitting(false);
+  } catch (error) {
+   
+    console.error(error);
+    actions.setSubmitting(false);
+  }
+};
 
   return (
     <>
@@ -60,8 +70,10 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
+               
                 <FormikInput type="email" label="Email Adresi" name="email" />
                 <FormikInput type="password" label="Şifre" name="password" />
+                
                 <Button variant="primary" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Giriş Yapılıyor...' : 'Giriş Yap'}
                 </Button>
