@@ -1,10 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { RentalModel } from '../../models/responses/RentalModel';
-import RentalService from '../../services/RentalService';
-import "./CarsPage.css"
-import FilterCarCard from '../../components/FilterCarCard/FilterCarCard';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { RentalModel } from "../../models/responses/RentalModel";
+import RentalService from "../../services/RentalService";
+import "./CarsPage.css";
+import FilterCarCard from "../../components/FilterCarCard/FilterCarCard";
 
 const CarsPage: React.FC = () => {
   // State hook'ları
@@ -13,7 +12,7 @@ const CarsPage: React.FC = () => {
   const [maxPrice, setMaxPrice] = useState<number>(0);
   const [colors, setColors] = useState<string[]>([]);
   const [years, setYears] = useState<number[]>([]);
-  const [selectedColor, setSelectedColor] = useState<string>('');
+  const [selectedColor, setSelectedColor] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<number>(0);
   const [selectedMinPrice, setSelectedMinPrice] = useState<number>(0);
   const [selectedMaxPrice, setSelectedMaxPrice] = useState<number>(0);
@@ -23,45 +22,68 @@ const CarsPage: React.FC = () => {
   const handleFilter = async () => {
     // URL'deki parametreleri al
     const params = new URLSearchParams(location.search);
-    const filterStartDate = new Date(params.get('start') || '');
-    
+    const filterStartDate = new Date(params.get("start") || "");
 
     try {
       // Tüm araçları getir
       const response = await new RentalService().getAll();
-      console.log('response.data.data:', response.data.data);
+      console.log("response.data.data:", response.data.data);
 
       if (response.data && Array.isArray(response.data.data)) {
         // Başlangıç tarihine göre filtreleme
-        let filtered = response.data.data.filter((rental: RentalModel) =>
-          new Date(rental.returnDate) <= filterStartDate &&
-          rental.returnDate !== null
+        let filtered = response.data.data.filter(
+          (rental: RentalModel) =>
+            rental.carResponse &&
+            new Date(rental.returnDate) <= filterStartDate &&
+            rental.returnDate !== null
         );
 
         // Fiyat aralığı belirleme
-        const prices = filtered.map((rental: RentalModel) => rental.carResponse.daily_price);
+        const prices = filtered.map(
+          (rental: RentalModel) => rental.carResponse.daily_price
+        );
         setMinPrice(Math.min(...prices));
         setMaxPrice(Math.max(...prices));
 
         // Renk ve yıl seçeneklerini belirleme
-        const uniqueColors = [...new Set(filtered.map((rental: RentalModel) => rental.carResponse.colorResponse.name))];
+        const uniqueColors = [
+          ...new Set(
+            filtered.map(
+              (rental: RentalModel) => rental.carResponse.colorResponse.name
+            )
+          ),
+        ];
         setColors(uniqueColors as string[]);
-        const uniqueYears = [...new Set(filtered.map((rental: RentalModel) => rental.carResponse.year))];
+        const uniqueYears = [
+          ...new Set(
+            filtered.map((rental: RentalModel) => rental.carResponse.year)
+          ),
+        ];
         setYears(uniqueYears as number[]);
 
         // Kullanıcının seçtiği kriterlere göre yeniden filtreleme
-        filtered = filtered.filter((rental: RentalModel) =>
-          (selectedColor ? rental.carResponse.colorResponse.name === selectedColor : true) &&
-          (selectedYear ? rental.carResponse.year === selectedYear : true) &&
-          (selectedMinPrice ? rental.carResponse.daily_price >= selectedMinPrice : true) &&
-          (selectedMaxPrice ? rental.carResponse.daily_price <= selectedMaxPrice : true)
+        filtered = filtered.filter(
+          (rental: RentalModel) =>
+            (selectedColor
+              ? rental.carResponse.colorResponse.name === selectedColor
+              : true) &&
+            (selectedYear ? rental.carResponse.year === selectedYear : true) &&
+            (selectedMinPrice
+              ? rental.carResponse.daily_price >= selectedMinPrice
+              : true) &&
+            (selectedMaxPrice
+              ? rental.carResponse.daily_price <= selectedMaxPrice
+              : true)
         );
         setFilteredRentals(filtered);
       } else {
-        console.error('Error: response.data.data is not an array:', response.data.data);
+        console.error(
+          "Error: response.data.data is not an array:",
+          response.data.data
+        );
       }
     } catch (error) {
-      console.error('Error filtering rentals:', error);
+      console.error("Error filtering rentals:", error);
     }
   };
 
@@ -83,36 +105,66 @@ const CarsPage: React.FC = () => {
       <div className="d-flex">
         <div className="input-group mb-3">
           <div className="input-group-prepend">
-            <label className="input-group-text" htmlFor="colorSelect">Color</label>
+            <label className="input-group-text" htmlFor="colorSelect">
+              Color
+            </label>
           </div>
-          <select className="custom-select" id="colorSelect" onChange={(e) => setSelectedColor(e.target.value)}>
+          <select
+            className="custom-select"
+            id="colorSelect"
+            onChange={(e) => setSelectedColor(e.target.value)}
+          >
             <option selected>Choose...</option>
             {colors.map((color, index) => (
-              <option key={index} value={color}>{color}</option>
+              <option key={index} value={color}>
+                {color}
+              </option>
             ))}
           </select>
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
-            <label className="input-group-text" htmlFor="yearSelect">Year</label>
+            <label className="input-group-text" htmlFor="yearSelect">
+              Year
+            </label>
           </div>
-          <select className="custom-select" id="yearSelect" onChange={(e) => setSelectedYear(Number(e.target.value))}>
+          <select
+            className="custom-select"
+            id="yearSelect"
+            onChange={(e) => setSelectedYear(Number(e.target.value))}
+          >
             <option selected>Choose...</option>
             {years.map((year, index) => (
-              <option key={index} value={year}>{year}</option>
+              <option key={index} value={year}>
+                {year}
+              </option>
             ))}
           </select>
         </div>
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder={`Min Price: ${minPrice}`} aria-label="MinPrice" 
-          aria-describedby="minPriceButton" onChange={(e) => setSelectedMinPrice(Number(e.target.value))} />
+          <input
+            type="text"
+            className="form-control"
+            placeholder={`Min Price: ${minPrice}`}
+            aria-label="MinPrice"
+            aria-describedby="minPriceButton"
+            onChange={(e) => setSelectedMinPrice(Number(e.target.value))}
+          />
         </div>
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder={`Max Price: ${maxPrice}`} aria-label="MaxPrice" 
-          aria-describedby="maxPriceButton" onChange={(e) => setSelectedMaxPrice(Number(e.target.value))} />
+          <input
+            type="text"
+            className="form-control"
+            placeholder={`Max Price: ${maxPrice}`}
+            aria-label="MaxPrice"
+            aria-describedby="maxPriceButton"
+            onChange={(e) => setSelectedMaxPrice(Number(e.target.value))}
+          />
         </div>
         <div className="input-group mb-3">
-          <button type="button" onClick={handleFilterButtonClick}>Filter</button>
+          <button type="button" onClick={handleFilterButtonClick}>
+            Filter
+          </button>
         </div>
       </div>
 
