@@ -1,6 +1,9 @@
 .footer {
     padding-top: 4rem;
     margin: 1.5rem;
+    position: re;
+    bottom: 0;
+    width: 100%;
     
   }
   .footer .footerContainer {
@@ -8,6 +11,12 @@
     background: var(--greyColor);
     border-radius: 10px;
     gap: 1.5rem;
+    
+  }
+  .footer .footerContainer .footerMenuDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
   .footer .footerContainer .singleGrid .footerTitle {
     display: block;
@@ -19,7 +28,7 @@
   }
   .footer .footerContainer .singleGrid .footerUl {
     gap: 5px;
-    padding-left: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: start;
