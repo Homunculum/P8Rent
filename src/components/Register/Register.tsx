@@ -24,7 +24,7 @@ const Register: React.FC = () => {
         gsm: '',
         email: '',
         password: '',
-        roles: ['user'], // varsayılan rol
+        roles: ['{USER}'], // varsayılan rol
     };
 
     const validationSchema = Yup.object({

@@ -4,5 +4,5 @@ export interface UsersModel {
   gsm: string,
   email: string,
   password: string,
-  roles: ['user'],
+  roles: ['{USER}'],
   }

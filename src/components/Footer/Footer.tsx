@@ -45,8 +45,8 @@ const Footer = (props: Props) => {
         </div>
       </div>
       <div className="lowerSection grid" data-aos="fade-up" data-aos-duration="1200">
-        <p> © {currentYear} {t("allRightsReservedBy")} </p>
-        <blockquote>{t("rent2GoProjects")}</blockquote>
+        <p> © {currentYear} {t("All Rights Reserved By")} </p>
+        <blockquote>{t("P8Rent")}</blockquote>
       </div>
     </div>
   );

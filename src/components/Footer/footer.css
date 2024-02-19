@@ -52,7 +52,9 @@
     text-align: center;
   }
   
-  @media screen and (min-width: 520px) {
+  @media screen and (min-width: 425px) {
+    
+    
     .footer .footerContainer .footerMenuDiv {
       grid-template-columns: repeat(2, 1fr);
     }
