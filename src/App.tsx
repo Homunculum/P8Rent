@@ -10,6 +10,8 @@ import CarDetails from './pages/CarDetails/CarDetails';
 import { AuthProvider } from './contexts/AuthContext';
 import Contact from './pages/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import Profile from './pages/ProfilePage/Profile';
+
 
 
 function App(): ReactElement {
@@ -24,6 +26,7 @@ function App(): ReactElement {
           <Route path='/car/:id' element={<CarDetails />} />
           <Route path='/login' element={<Login />} />
           <Route path="/contact" element={<Contact />}/>
+          <Route path='/profile' element={<Profile />} />
           
           
         </Routes>

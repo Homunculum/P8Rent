@@ -34,23 +34,21 @@ const Login = () => {
       .min(8, "En az 8 haneli olmak zorunda"),
   });
 
-const handleSubmit = async (values: any, actions: any) => {
-  try {
-    const { email, password } = values;
-   
-    const token = await AuthService.login(email, password);
-
-    authContext.setIsAuthenticated(true);
-    
-    
-    handleClose();
-    actions.setSubmitting(false);
-  } catch (error) {
-   
-    console.error(error);
-    actions.setSubmitting(false);
-  }
-};
+  const handleSubmit = async (values: any, actions: any) => {
+    try {
+      const { email, password } = values;
+     
+      const { accessToken, userId } = await AuthService.login(email, password);
+  
+      authContext.setIsAuthenticated(true, userId);
+      
+      handleClose();
+      actions.setSubmitting(false);
+    } catch (error) {
+      console.error(error);
+      actions.setSubmitting(false);
+    }
+  };
 
   return (
     <>

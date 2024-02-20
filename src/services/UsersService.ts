@@ -1,16 +1,14 @@
 import axios from 'axios';
-import { AddUser } from '../models/request/AddUser';
-import { UsersModel } from '../models/responses/UsersModel';
 
+const BASE_URL = 'http://localhost:8080/api/users';
 
-export class UsersService {
-  static async addUser(user: AddUser) {
-    const response = await axios.post('http://localhost:8080/api/users/add', user);
-    return response.data;
-  }
-
-  static async getAllUsers() {
-    const response = await axios.get('http://localhost:8080/api/users/getAll');
-    return response.data as UsersModel[];
-  }
-}
+export const UserService = {
+  getUserById: async (userId: string) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/${userId}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+};
