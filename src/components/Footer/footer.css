@@ -31,7 +31,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    
   }
   .footer .footerContainer .singleGrid .footerUl .footerLi {
     color: var(--textColor);

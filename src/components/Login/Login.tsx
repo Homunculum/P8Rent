@@ -38,9 +38,9 @@ const Login = () => {
     try {
       const { email, password } = values;
      
-      const { accessToken, userId } = await AuthService.login(email, password);
+      const { accessToken, id } = await AuthService.login(email, password);
   
-      authContext.setIsAuthenticated(true, userId);
+      authContext.setIsAuthenticated(true, id);
       
       handleClose();
       actions.setSubmitting(false);

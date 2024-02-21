@@ -90,6 +90,7 @@ const CarsPage: React.FC = () => {
   // Sayfa yüklendiğinde veya URL parametreleri değiştiğinde filtreleme yap
   useEffect(() => {
     handleFilter();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
 
   // Filtreleme butonuna tıklandığında filtreleme yap
