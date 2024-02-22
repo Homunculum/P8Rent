@@ -40,7 +40,7 @@ const FilterCarCard: React.FC<FilterCarCardProps> = ({ car }) => {
           <p className="card-text"><IoIosColorPalette/> Color: {car.colorResponse.name}</p>
         </div>
         {authContext.isAuthenticated ? (
-          <Link className="btn btn-success" to={`/car/${car.id}`} onClick={handleRent}>
+          <Link className="btn btn-success" to={`/rent/${car.id}`} onClick={handleRent}>
             Hemen Kirala
           </Link>
         ) : (
