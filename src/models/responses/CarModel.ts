@@ -1,7 +1,8 @@
 export interface CarModel {
  
     id: number;
-    daily_price: number;
+    dailyPrice: number;
+    imagePath: string;
     kilometer: number;
     plate: string;
     year: number;

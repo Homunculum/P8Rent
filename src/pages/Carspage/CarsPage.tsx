@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { RentalModel } from "../../models/responses/RentalModel";
-import RentalService from "../../services/RentalService";
+import CarService from "../../services/CarService";
 import "./CarsPage.css";
 import FilterCarCard from "../../components/FilterCarCard/FilterCarCard";
 
 const CarsPage: React.FC = () => {
-  // State hook'ları
-  const [filteredRentals, setFilteredRentals] = useState<RentalModel[]>([]);
+  
+  const [filteredCars, setFilteredCars] = useState<any[]>([]);
   const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(0);
   const [colors, setColors] = useState<string[]>([]);
@@ -16,93 +14,56 @@ const CarsPage: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<number>(0);
   const [selectedMinPrice, setSelectedMinPrice] = useState<number>(0);
   const [selectedMaxPrice, setSelectedMaxPrice] = useState<number>(0);
-  const location = useLocation(); // React Router'dan mevcut URL'yi alır.
 
-  // Araçları filtreleyen fonksiyon
+  
   const handleFilter = async () => {
-    // URL'deki parametreleri al
-    const params = new URLSearchParams(location.search);
-    const filterStartDate = new Date(params.get("start") || "");
-
     try {
-      // Tüm araçları getir
-      const response = await new RentalService().getAll();
-      console.log("response.data.data:", response.data.data);
-
-      if (response.data && Array.isArray(response.data.data)) {
-        // Başlangıç tarihine göre filtreleme
+      const response = await new CarService().getAll();
+      console.log("response.data:", response.data);
+  
+      if (response.data.data && Array.isArray(response.data.data)) {
         let filtered = response.data.data.filter(
-          (rental: RentalModel) =>
-            rental.carResponse &&
-            new Date(rental.returnDate) <= filterStartDate &&
-            rental.returnDate !== null
+          (car: any) => car.carState === "AVAILABLE"
         );
-
-        // Fiyat aralığı belirleme
-        const prices = filtered.map(
-          (rental: RentalModel) => rental.carResponse.daily_price
-        );
+  
+        const prices = filtered.map((car: any) => car.dailyPrice);
         setMinPrice(Math.min(...prices));
         setMaxPrice(Math.max(...prices));
-
-        // Renk ve yıl seçeneklerini belirleme
-        const uniqueColors = [
-          ...new Set(
-            filtered.map(
-              (rental: RentalModel) => rental.carResponse.colorResponse.name
-            )
-          ),
-        ];
+  
+        const uniqueColors = [...new Set(filtered.map((car: any) => car.colorResponse.name))];
         setColors(uniqueColors as string[]);
-        const uniqueYears = [
-          ...new Set(
-            filtered.map((rental: RentalModel) => rental.carResponse.year)
-          ),
-        ];
+        const uniqueYears = [...new Set(filtered.map((car: any) => car.year))];
         setYears(uniqueYears as number[]);
-
-        // Kullanıcının seçtiği kriterlere göre yeniden filtreleme
+  
         filtered = filtered.filter(
-          (rental: RentalModel) =>
-            (selectedColor
-              ? rental.carResponse.colorResponse.name === selectedColor
-              : true) &&
-            (selectedYear ? rental.carResponse.year === selectedYear : true) &&
-            (selectedMinPrice
-              ? rental.carResponse.daily_price >= selectedMinPrice
-              : true) &&
-            (selectedMaxPrice
-              ? rental.carResponse.daily_price <= selectedMaxPrice
-              : true)
+          (car: any) =>
+            (selectedColor ? car.colorResponse.name === selectedColor : true) &&
+            (selectedYear ? car.year === selectedYear : true) &&
+            (selectedMinPrice ? car.dailyPrice >= selectedMinPrice : true) &&
+            (selectedMaxPrice ? car.dailyPrice <= selectedMaxPrice : true)
         );
-        setFilteredRentals(filtered);
+        setFilteredCars(filtered);
       } else {
-        console.error(
-          "Error: response.data.data is not an array:",
-          response.data.data
-        );
+        console.error("Error: response.data is not an array:", response.data);
       }
     } catch (error) {
-      console.error("Error filtering rentals:", error);
+      console.error("Error filtering cars:", error);
     }
   };
 
-  // Sayfa yüklendiğinde veya URL parametreleri değiştiğinde filtreleme yap
-  useEffect(() => {
-    handleFilter();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.search]);
-
-  // Filtreleme butonuna tıklandığında filtreleme yap
+  
   const handleFilterButtonClick = () => {
     handleFilter();
   };
+
+  useEffect(() => {
+    handleFilter();
+  }, []);
 
   return (
     <div className="container">
       <h1>Filtered Cars</h1>
 
-      {/* Filtreleme alanları */}
       <div className="d-flex">
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -169,11 +130,10 @@ const CarsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Filtrelenmiş araçlar */}
       <div className="row">
-        {filteredRentals.map((rental) => (
-          <div key={rental.carResponse.id} className="col-md-4 mb-4">
-            <FilterCarCard car={rental.carResponse} />
+        {filteredCars.map((car: any) => (
+          <div key={car.id} className="col-md-4 mb-4">
+            <FilterCarCard car={car} />
           </div>
         ))}
       </div>

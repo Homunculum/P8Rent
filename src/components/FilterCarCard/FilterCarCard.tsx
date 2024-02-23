@@ -36,7 +36,7 @@ const FilterCarCard: React.FC<FilterCarCardProps> = ({ car }) => {
         <div className="vehicle-card-description-container">
           <p className="card-text"> <FaCalendarTimes/> Year: {car.year}</p>
           <p className="card-text"><IoIosSpeedometer/> Kilometer: {car.kilometer}</p>
-          <p className="card-text"><FaMoneyBill/> Daily Price: {car.daily_price}</p>
+          <p className="card-text"><FaMoneyBill/> Daily Price: {car.dailyPrice}</p>
           <p className="card-text"><IoIosColorPalette/> Color: {car.colorResponse.name}</p>
         </div>
         {authContext.isAuthenticated ? (

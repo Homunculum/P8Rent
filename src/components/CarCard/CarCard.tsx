@@ -18,14 +18,14 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
         </h4>
       </div>
       <div className="vehicle-card-img-container">
-        <img src={"assets/CarImage/car.jpg"} alt={car.modelResponse.name} />
+        <img src={car.imagePath} alt={car.modelResponse.name} />
       </div>
       <div className="content-container">
         <div className="vehicle-card-description-container">
           <p className="card-text">
             <FaCalendarTimes  /> Year: {car.year}</p>
           <p className="card-text"> <IoIosSpeedometer /> Kilometer: {car.kilometer}</p>
-          <p className="card-text"> <FaMoneyBill /> Daily Price: {car.daily_price}</p>
+          <p className="card-text"> <FaMoneyBill /> Daily Price: {car.dailyPrice}</p>
           <p className="card-text"> <IoIosColorPalette /> Color: {car.colorResponse.name}</p>
         </div>
         <div className="vehicle-card-btn-container">

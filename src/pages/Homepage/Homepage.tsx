@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
   const [filterEndDate, setFilterEndDate] = useState(new Date());
   const [cars, setCars] = useState<CarModel[]>([]);
   const history = useNavigate();
-  //tarihler new Date() ile bugünün tarihini alıyor
+  
   const addDays = (date: Date, days: number) => {
     const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + days);
@@ -36,10 +36,11 @@ const HomePage: React.FC = () => {
     } catch (error) {
       console.error('Error fetching cars:', error);
     }
-    /*toISOString(): Bu metot, bir JavaScript tarih nesnesini ISO 8601 biçiminde bir dizeye dönüştürür. 
-   Bu, tarih ve saat bilgisini içeren bir formattır ve genellikle web uygulamalarında kullanılır.*/
-    const filteredCarsQuery = `?start=${filterStartDate.toISOString()}&end=${filterEndDate.toISOString()}`;
-    history(`/cars${filteredCarsQuery}`);
+    // Sıfırla
+    setFilterStartDate(new Date());
+    setFilterEndDate(addDays(new Date(), 1));
+    // Yönlendirme
+    history('/cars');
   };
 
   useEffect(() => {

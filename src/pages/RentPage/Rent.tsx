@@ -124,7 +124,7 @@ const Rent: React.FC = () => {
                   </p>
                   <p className="details-text">
                     {" "}
-                    <FaMoneyBill /> Daily Price: {car.daily_price}
+                    <FaMoneyBill /> Daily Price: {car.dailyPrice}
                   </p>
                   <p className="details-text">
                     {" "}
