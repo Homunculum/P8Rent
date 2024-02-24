@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Homepage from './pages/Homepage/Homepage';
 import About from './pages/About/AboutPage';
 import Login from './components/Login/Login';
-import CarsPage from './pages/Carspage/CarsPage';
+import CarsPage from './pages/CarsPage/CarsPage';
 import CarDetails from './pages/CarDetails/CarDetails';
 import { AuthProvider } from './contexts/AuthContext';
 import Contact from './pages/Contact/Contact';
