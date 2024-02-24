@@ -5,6 +5,8 @@ import { CarModel } from "../../models/responses/CarModel";
 import "./Rent.css";
 import { FaCalendarTimes, FaMoneyBill } from "react-icons/fa";
 import { IoIosSpeedometer, IoIosColorPalette } from "react-icons/io";
+import { AuthContext } from "../../contexts/AuthContext"; // AuthContext'i import ediyoruz
+import RentalService from "../../services/RentalService"; // RentalService'i import ediyoruz
 
 const Rent: React.FC = () => {
   const [car, setCar] = useState<CarModel | null>(null);
@@ -17,6 +19,7 @@ const Rent: React.FC = () => {
 
   const navigate = useNavigate();
   const { id } = useParams();
+  const authContext = useContext(AuthContext); // AuthContext'ten gerekli bilgileri alıyoruz
 
   useEffect(() => {
     const fetchCarDetails = async () => {
@@ -41,7 +44,7 @@ const Rent: React.FC = () => {
   };
 
   const handleRent = async () => {
-   if (paymentMethod === "card") {
+    if (paymentMethod === "card") {
       if (
         !name ||
         !cardNumber ||
@@ -54,9 +57,24 @@ const Rent: React.FC = () => {
       }
     }
 
-   
     try {
-     
+      // AuthContext'ten gerekli bilgileri alıyoruz
+      const { id: userId, filterStartDate, filterEndDate } = authContext;
+      
+      // Rent işlemi için gerekli olan verileri hazırlıyoruz
+      const rentalData = {
+        startDate: filterStartDate || "", // AuthContext'ten alınan başlangıç tarihi
+        endDate: filterEndDate || "", // AuthContext'ten alınan bitiş tarihi
+        discount: 0, // Sabit discount değeri
+        carId: parseInt(id || "0", 10), // URL'den alınan araba ID'si
+        customerId: parseInt(userId || "0", 10), // AuthContext'ten alınan kullanıcı ID'si
+        employeeId: Math.floor(Math.random() * 4) + 1, // Rastgele bir çalışan ID'si
+        userId: parseInt(userId || "0", 10), // AuthContext'ten alınan kullanıcı ID'si
+      };
+      
+      // RentalService üzerinden addRent fonksiyonunu çağırıyoruz
+      await new RentalService().addRent(rentalData);
+
       alert("Car rental process has been successfully completed.");
       navigate("/");
     } catch (error) {
@@ -65,7 +83,6 @@ const Rent: React.FC = () => {
     }
   };
 
-  
   const monthOptions = Array.from({ length: 12 }, (_, index) => {
     const monthNumber = index + 1;
     return (
@@ -75,7 +92,6 @@ const Rent: React.FC = () => {
     );
   });
 
-  
   const currentYear = new Date().getFullYear();
   const yearOptions = Array.from({ length: 12 }, (_, index) => {
     const year = currentYear + index;

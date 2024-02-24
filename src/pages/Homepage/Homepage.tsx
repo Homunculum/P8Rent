@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -7,6 +6,8 @@ import CarService from '../../services/CarService';
 import CarCard from '../../components/CarCard/CarCard';
 import { CarModel } from '../../models/responses/CarModel';
 import './Homepage.css'
+import { AuthContext } from '../../contexts/AuthContext';
+
 
 const HomePage: React.FC = () => {
   const [filterStartDate, setFilterStartDate] = useState(new Date());
@@ -14,6 +15,8 @@ const HomePage: React.FC = () => {
   const [cars, setCars] = useState<CarModel[]>([]);
   const history = useNavigate();
   
+  const { setFilterDates } = useContext(AuthContext); // setFilterDates'i AuthContext'ten alın
+
   const addDays = (date: Date, days: number) => {
     const newDate = new Date(date);
     newDate.setDate(newDate.getDate() + days);
@@ -28,7 +31,7 @@ const HomePage: React.FC = () => {
     setFilterStartDate(date);
     setFilterEndDate(addDays(date, 1));
   };
-  //addDays sayesinde endDate e her zaman +1 gün veriliyor
+  
   const handleFilter = async () => {
     try {
       const response = await new CarService().getAll();
@@ -36,10 +39,12 @@ const HomePage: React.FC = () => {
     } catch (error) {
       console.error('Error fetching cars:', error);
     }
-    // Sıfırla
-    setFilterStartDate(new Date());
-    setFilterEndDate(addDays(new Date(), 1));
-    // Yönlendirme
+    
+    const startDateString = filterStartDate.toISOString().split('T')[0];
+    const endDateString = filterEndDate.toISOString().split('T')[0];
+    
+    setFilterDates(startDateString, endDateString); // Tarihleri AuthContext'e kaydedin
+    
     history('/cars');
   };
 
