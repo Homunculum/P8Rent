@@ -45,7 +45,7 @@ setCar(carData);
           </h4>
         </div>
         <div className="vehicle-details-img-container">
-          <img src={CarImg} alt={car.modelResponse.name} />
+          <img src={car.imagePath} alt={car.modelResponse.name} />
         </div>
         <div className="content-container">
           

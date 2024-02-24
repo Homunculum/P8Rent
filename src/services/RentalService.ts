@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import AddRent from '../models/request/AddRent';
 
 
 class RentalService {
@@ -11,5 +12,15 @@ class RentalService {
       throw error;
     }
   }
+  async addRent(rentalData: AddRent): Promise<any> {
+    try {
+      const response = await axios.post('http://localhost:8080/api/rentals/add', rentalData);
+      return response;
+    } catch (error) {
+      console.error('Error adding rent:', error);
+      throw error;
+    }
+  }
 }
+
 export default RentalService;

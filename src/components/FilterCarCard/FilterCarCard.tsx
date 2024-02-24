@@ -30,7 +30,7 @@ const FilterCarCard: React.FC<FilterCarCardProps> = ({ car }) => {
         </h4>
       </div>
       <div className="vehicle-card-img-container">
-        <img src={"assets/CarImage/car.jpg"} alt={car.modelResponse.name} />
+        <img src={car.imagePath} alt={car.modelResponse.name} />
       </div>
       <div className="content-container">
         <div className="vehicle-card-description-container">
