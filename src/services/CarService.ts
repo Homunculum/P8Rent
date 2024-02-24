@@ -3,6 +3,9 @@ import axios, { AxiosResponse } from 'axios';
 import { CarModel } from '../models/responses/CarModel';
 
 class CarService {
+  static getById(carId: any) {
+      throw new Error('Method not implemented.');
+  }
 
   // Java servisine get request yapacak olan metot
   async getAll(): Promise<AxiosResponse<any>> {
