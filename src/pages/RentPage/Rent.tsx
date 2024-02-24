@@ -2,24 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CarService from "../../services/CarService";
 import { CarModel } from "../../models/responses/CarModel";
-import { AuthContext } from "../../contexts/AuthContext";
 import "./Rent.css";
-import CarImg from "../../assets/CarImage/car.jpg";
 import { FaCalendarTimes, FaMoneyBill } from "react-icons/fa";
 import { IoIosSpeedometer, IoIosColorPalette } from "react-icons/io";
 
 const Rent: React.FC = () => {
   const [car, setCar] = useState<CarModel | null>(null);
-  const [totalPrice, setTotalPrice] = useState<number>(0);
   const [paymentMethod, setPaymentMethod] = useState<string>("cash");
-  const [showModal, setShowModal] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
-  const [surname, setSurname] = useState<string>("");
   const [cardNumber, setCardNumber] = useState<string>("");
   const [expiryMonth, setExpiryMonth] = useState<string>("");
   const [expiryYear, setExpiryYear] = useState<string>("");
   const [cvv, setCvv] = useState<string>("");
-  const { isAuthenticated } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -46,15 +41,9 @@ const Rent: React.FC = () => {
   };
 
   const handleRent = async () => {
-    if (!isAuthenticated) {
-      alert("Please log in first");
-      return;
-    }
-
-    if (paymentMethod === "card") {
+   if (paymentMethod === "card") {
       if (
         !name ||
-        !surname ||
         !cardNumber ||
         !expiryMonth ||
         !expiryYear ||
@@ -65,9 +54,9 @@ const Rent: React.FC = () => {
       }
     }
 
-    // Rental service call will be made here, for now let's keep it as a comment
+   
     try {
-      // Assuming rental service call is successful
+     
       alert("Car rental process has been successfully completed.");
       navigate("/");
     } catch (error) {
@@ -76,7 +65,7 @@ const Rent: React.FC = () => {
     }
   };
 
-  // Generate options for months (1 to 12)
+  
   const monthOptions = Array.from({ length: 12 }, (_, index) => {
     const monthNumber = index + 1;
     return (
@@ -86,7 +75,7 @@ const Rent: React.FC = () => {
     );
   });
 
-  // Generate options for years (current year to current year + 11)
+  
   const currentYear = new Date().getFullYear();
   const yearOptions = Array.from({ length: 12 }, (_, index) => {
     const year = currentYear + index;
@@ -111,7 +100,7 @@ const Rent: React.FC = () => {
                   </h4>
                 </div>
                 <div className="vehicle-details-img-container">
-                  <img src={CarImg} alt={car.modelResponse.name} />
+                  <img src={car.imagePath} alt={car.modelResponse.name} />
                 </div>
                 <div className="content-container">
                   <p className="details-text">
