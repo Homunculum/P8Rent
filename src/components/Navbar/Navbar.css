@@ -7,16 +7,16 @@
   padding: 1.5rem 2rem;
   box-shadow: 0 2px 5px rgb(119, 113, 113);
   z-index: 1000;
-  background-color: var(--secondaryColor);
+  background-color: #cecdc9;
  
 }
 
 
 .dropdown-menu {
-  background: var(--greyColor);
+  background-color: transparent;
   border: none;
-  padding: 1rem 2rem;
-  margin: 3rem -1.5rem;
+  
+  
   width: 190px;
 }
 .dropdown-menu .text {
@@ -59,14 +59,12 @@
     left: 50%;
     transform: translate(-50%);
     background: var(--secondaryColor);
-    color: var(--primaryColor);
+    
     padding: 3px;
     border-radius: 50%;
     font-size: 35px;
   }
-  .closeIcon:hover {
-    color: red;
-  }
+  
   .menu {
     list-style-type: none; 
     padding: 0;
@@ -82,15 +80,15 @@
   }
   .menu .listItem a {
     font-size: 15px;
-    color: var(--greyColor);
+   
     text-align: center;
   }
   .menu .listItem a:hover {
     color: var(--whiteColor);
   }
   .menu .listItem:hover {
-    background: var(--primaryColor);
-    color: var(--whiteColor);
+    background: #cecdc9;
+   
     transition: 0.3s ease;
   }
 }
@@ -104,9 +102,9 @@
 }
 .signUp .textAction {
   padding: 3px 10px;
-  background: var(--primaryColor);
+  background-color: transparent;
   border-radius: 3px;
-  color: var(--whiteColor);
+  color: var(--blackColor);
   cursor: pointer;
   font-size: 14px;
   width: 120px;
@@ -118,16 +116,16 @@
 }
 .signUp .text {
   padding: 3px 10px;
-  background: var(--primaryColor);
+  background-color:#cecdc9;
   border-radius: 3px;
-  color: var(--whiteColor);
+  box-shadow: 0 1px 2px black;
   cursor: pointer;
   font-size: 14px;
   text-align: left;
 }
 .signUp .text:hover {
-  background: var(--secondaryColor);
-  color: var(--blackColor);
+  background: #c2bfb6;
+  color: white;
 }
 .signUp .dropdown {
   width: 150px;
@@ -180,16 +178,17 @@
     border-radius: 3px;
   }
   .header .navbar .menu .listItem a {
-    color: var(--primaryColor);
+    color: var(--blackColor);
     font-size: 15px;
   }
   .header .navbar .menu .listItem:hover {
-    background: var(--primaryColor);
-    color: var(--whiteColor);
+    background: #cecdc9;
+    color: var(--blackColor);
     transition: 0.3s ease;
+    box-shadow: 0 1px 2px ;
   }
   .header .navbar .menu .listItem:hover a {
-    color: var(--whiteColor);
+    color: #665d40 ;
   }
   .header .signUp .text {
     padding: 6px 10px;

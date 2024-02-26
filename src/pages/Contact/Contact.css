@@ -7,7 +7,7 @@
     align-items: center;
 }
 .container h1{
-    color: var(--whiteColor);
+    color: var(--blackColor);
     font-weight: 500;
     border-radius: 0.5rem;
     font-size: 50px;

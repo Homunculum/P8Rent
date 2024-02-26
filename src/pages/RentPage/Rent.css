@@ -1,3 +1,87 @@
 .container{
+  
+  background-color: transparent;
   padding: 8rem 8rem;
+}
+.container .row{
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+}
+.container .row .payment .card{
+  width: 100%;
+  background-color: transparent;
+}
+.container .row .payment .card .card-body{
+  display: flex;
+flex-direction: column;
+}
+.container .row .payment .card .card-body .payment-text{
+  display: flex;
+  align-items: start;
+  
+}
+.container .row .payment .card .card-body .payment-text p{
+  margin-left: 10px;
+}
+.container .row .payment .card .card-body .form{
+  display: flex;
+  justify-content: center;
+}
+.container .row .payment .card .card-body .form .form-check{
+  display: flex;
+  margin-right: 20px;
+}
+.container .row .payment .card .card-body .form .form-check input{
+  margin-right: 5px;
+}
+
+.container .row .car .card{
+  
+
+  display: flex;
+  
+  background-color: transparent;
+}
+.container .row .car .card img{
+  width: 100%;
+}
+.container .row .car .card .content-container{
+  margin: 0 auto;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.container .row .payment .card .card-body .credit{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  
+  
+}
+.container .row .payment .card .card-body .credit .form-row{
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.container .row .payment .card .card-body .credit .form-row .form-group{
+  flex: 1;
+  margin-right: 5px;
+}
+.container .row .payment .card .card-body button{
+  margin-top: 5px;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 1px 2px;
+  color: black;
+}
+.container .row .payment .card .card-body button:hover{
+  margin-top: 5px;
+  background-color: rgb(161, 153, 142);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px;
+  color: white;
 }

@@ -17,7 +17,7 @@ interface PersonData {
     {
       id: 2,
       name: 'Abdulkadir Elsıkma',
-      about: 'Junior Java & React Fullstack Developer - Çankaya, Ankara',
+      about: 'Java & React Fullstack Developer - Çankaya, Ankara',
       image:'assets/AboutImage/Abdulkadir.jpg',
       linkedin:'https://www.linkedin.com/in/abdulkadir-els%C4%B1kma/'
     },

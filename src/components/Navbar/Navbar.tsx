@@ -62,15 +62,7 @@ const Navbar: React.FC = () => {
         <div className="signUp flex">
           {authContext.isAuthenticated ? (
             <>
-              <NavDropdown
-                className="textAction text"
-                title={
-                  <Link className="text btn" to="/profile">
-                    My Account
-                  </Link>
-                }
-                id="basic-nav-dropdown"
-              >
+              <NavDropdown className="textAction text" title="My Account" id="basic-nav-dropdown">
                 <Link className=" text textAction btn" to="/profile">
                   {" "}
                   Profile

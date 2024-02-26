@@ -1,62 +1,81 @@
-.vehicleCard{
-  background-color: #992a2a; 
+
+.filterCard{
   border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
-  
-  transition: transform 0.3s; 
+  box-shadow: 0 4px 8px rgba(14, 13, 13, 0.1); 
+  transition: transform 0.2s; 
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
+  background-color: transparent;
   
   
 }
 
-.vehicleCard:hover {
+.filterCardCard:hover {
   transform: scale(1.05); 
   
 }
-.vehicleCard .vehicle-card-header-div{
+.filterCard .filter-card-header-div{
   text-align: center;
   padding-left: 1rem;
   padding-top: 1rem;
-  background-color: var(--secondaryColor);
-}
-.vehicleCard .vehicle-card-header-div h4{
-  color: var(--whiteColor);
   
+}
+.filterCard .filter-card-header-div h4{
+  color: var(--blackColor);
+  text-shadow: 0 1px 2px rgb(128, 126, 126)
 
 }
-.vehicleCard  .vehicle-card-img-container{
+.filterCard  .filter-card-img-container{
   padding: 0.5rem;
-  background-color: var(--secondaryColor)
+ 
 }
-.vehicleCard  .vehicle-card-img-container img{
+.filterCard  .filter-card-img-container img{
   width: 100%;
   object-fit: cover;
   border-radius: 8px; 
   
 }
-.vehicleCard .content-container{
+.filterCard .content-container{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   text-align: left;
   align-items: flex-end;
   padding-bottom: 1rem;
-  background-color: var(--secondaryColor)
+  
 
 }
-.vehicleCard .content-container .vehicle-card-description-container{
-  color: var(--whiteColor);
+.filterCard .content-container .filter-card-description-container{
+  color: var(--blackColor);
+    text-shadow: 0 1px 1px rgb(88, 88, 88);
 }
-.vehicleCard .content-container .vehicle-card-btn-container{
+.filterCard .content-container .filter-card-btn-container{
   display: flex;
+  background-color: rgb(161, 153, 142);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px;
     
 }
-.vehicleCard .content-container .vehicle-card-btn-container a{
-  background-color: rgb(72, 107, 121);
-  color: var(--whiteColor);
-
-
+.filterCard .content-container .filter-card-btn-container a{
+  
+  color: var(--blackColor);   
+  
+}
+.filterCard .content-container .filter-card-btn-container a:hover{
     
+  color: var(--whiteColor);
+  transition: 0.3s ;
+  
+}
+.filterCard .content-container .filter-card-btn-container button{
+  
+  color: var(--blackColor);   
+  
+}
+.filterCard .content-container .filter-card-btn-container button:hover{
+    
+  color: var(--whiteColor);
+  transition: 0.3s ;
+  
 }

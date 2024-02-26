@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
   
 
   return (
-    <div className="container">
+  <div className="container">
   <h1 className='text-center'>Car Filter</h1>
   <div className='filter-card-container'>
     <div className="card" >
@@ -98,7 +98,7 @@ const HomePage: React.FC = () => {
   <h1 className='text-center'>All Cars</h1>
   <div className="row">
     {cars.map((car) => (
-      <div key={car.id} className="col-md-6 mb-4">
+      <div key={car.id} className="col-md-4 mb-4 bg-transparent" >
         <CarCard car={car} />
       </div>
     ))}

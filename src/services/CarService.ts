@@ -7,15 +7,15 @@ class CarService {
       throw new Error('Method not implemented.');
   }
 
-  // Java servisine get request yapacak olan metot
+  
   async getAll(): Promise<AxiosResponse<any>> {
     try {
       const response = await axios.get<any>('http://localhost:8080/api/cars/getAll');
       return response;
     } catch (error) {
-      // Hata durumunda burada işlem yapabilirsiniz.
+     
       console.error('Error fetching data:', error);
-      throw error; // İsterseniz hatayı yukarıya iletebilirsiniz.
+      throw error; 
     }
   }
   async getById(id: number): Promise<AxiosResponse<{ data: CarModel }>> {

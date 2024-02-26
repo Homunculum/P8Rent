@@ -5,21 +5,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(72, 107, 121);
+    background-color: #cecdc9;
   
   }
   .container h1{
-    color: var(--whiteColor);;
+    
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     line-height: 5rem;
-    background-color:rgb(72, 107, 121);
     text-decoration-line: underline;
+    text-shadow: 0 2px 3px rgb(128, 126, 126);
+    
     
   }
   .filter-card-container{
     display: 'flex';
-    background-color: rgb(72, 107, 121);
+    background-color: #cecdc9;
     padding-bottom: 1rem;
     width: 100%;
     border-radius: 2rem;
@@ -32,7 +33,9 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgb(72, 107, 121);
+    background-color: #cecdc9;
+    box-shadow: 0 2px 5px rgb(119, 113, 113) ;
+    text-shadow: 0 1px 2px rgb(128, 126, 126);
   }
 
   .filter-card-container .card .date-input-container{
@@ -55,7 +58,7 @@
     padding: 0.25rem 0.5rem;
     background: var(--whiteColor);
     border-radius: 0.5rem;
-    color: rgb(72, 107, 121);
+    color: black;
     font-weight: 500;
     font-size: 18px;
 
@@ -74,16 +77,21 @@
     width: 100%;
     border: none;
     outline: none;
-    background-color: var(--secondaryColor);
-    color: var(--whiteColor);
+    background-color: transparent;
+    box-shadow: 0 1px 2px;
+    color: black;
     border-radius: 0.5rem;
     font-size: 18px;
     padding: 0.25rem 2rem;
     font-weight: 500;
   }
+  .filter-card-container .card .btn-container button:hover{
+    background: #c2bfb6;
+    color:white
+  }
   .filter-card-container .card .date-input-container .date-input-div label{
     font-size: 16px;
-    color: var(--whiteColor);
+    color: black;
     font-weight: 500
     ;
   }
@@ -128,7 +136,7 @@
       padding: 0.25rem 0.5rem;
       background: var(--whiteColor);
       border-radius: 0.5rem;
-      color: rgb(72, 107, 121);
+      color: black;
       font-weight: 500;
       font-size: 18px;
   

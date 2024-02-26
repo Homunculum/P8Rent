@@ -1,48 +1,62 @@
 .team-container {
   display: flex;
-  
+  flex-wrap: wrap;
   padding-top: 10rem;
+  width: 100%;
 }
 
 .person-card {
-  margin: 10px;
-  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 50px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
-  margin-bottom: 20px;
-  color: #fdfdfd;
+  margin: 0 auto;
+  max-width: 400px;
+  max-height: 550px;
+  color: black;
+  width: 100%;
 }
-
-.person-card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.person-image {
-  width: 100px; 
+.person-card img{
+  width: 100%;
   margin-bottom: 10px;
   border-radius: 50%;
   border: none;
 }
+
+.person-card:hover {
+
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
 .person-about {
   white-space: pre-wrap;
 }
 
 .linkedin-button-container {
-  margin-top: 30px;
+ display: flex;
+ justify-content: center;
+ padding-top: 20px;
+ padding-bottom: 20px;
 }
 
 .linkedin-button-container button {
   cursor: pointer;
   transition: background-color 0.3s;
-  border-radius: 15%;
+  border-radius: 10px;
   border: none;
-  background-color: var(--secondaryColor);
-  color: var(--whiteColor);
+  background-color: transparent;
+  box-shadow: 0 1px 2px;
+  
   padding: 8px 16px; 
 }
 
 .linkedin-button-container button:hover {
-  background-color: rgb(92, 127, 141); }
+  background-color:rgb(161, 153, 142); 
+  color: var(--whiteColor);
+  box-shadow: 0 1px 2px;
+}

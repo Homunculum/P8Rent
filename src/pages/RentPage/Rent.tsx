@@ -128,7 +128,7 @@ const Rent: React.FC = () => {
             <div className="card">
               <div>
                 <div className="vehicle-details-header-div">
-                  <h4 className="text-style text-style--h3 text-style--h3-xl card__title">
+                  <h4 className="text-style ">
                     {car.modelResponse.name}
                   </h4>
                 </div>
@@ -159,10 +159,14 @@ const Rent: React.FC = () => {
           <div className="payment">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">Payment</h5>
-                <p>Total Price: {rentalPrice}</p> 
-                <p>Start Date: {authContext.filterStartDate ? formatDateString(authContext.filterStartDate) : ''}</p> 
+                <div className="payment-text">
+                <h5 className="card-title">Payment: </h5>
+                <p> Start Date: {authContext.filterStartDate ? formatDateString(authContext.filterStartDate) : ''}</p> 
                 <p>End Date: {authContext.filterEndDate ? formatDateString(authContext.filterEndDate) : ''}</p> 
+                <p>Total Price: {rentalPrice}</p> 
+                
+                </div>
+                <div className="form">
                 <div className="form-check">
                   <input
                     type="radio"
@@ -191,8 +195,9 @@ const Rent: React.FC = () => {
                     Credit Card
                   </label>
                 </div>
+                </div>
                 {paymentMethod === "card" && (
-                  <div>
+                  <div className="credit">
                     <div className="form-group">
                       <label>Name</label>
                       <input
@@ -212,8 +217,9 @@ const Rent: React.FC = () => {
                         onChange={(e) => setCardNumber(e.target.value)}
                       />
                     </div>
+                  
                     <div className="form-row">
-                      <div className="form-group col-md-6">
+                      <div className="form-group ">
                         <label>Expiry Month</label>
                         <select
                           className="form-control"
@@ -224,7 +230,7 @@ const Rent: React.FC = () => {
                           {monthOptions}
                         </select>
                       </div>
-                      <div className="form-group col-md-6">
+                      <div className="form-group">
                         <label>Expiry Year</label>
                         <select
                           className="form-control"
@@ -235,8 +241,7 @@ const Rent: React.FC = () => {
                           {yearOptions}
                         </select>
                       </div>
-                    </div>
-                    <div className="form-group">
+                      <div className="form-group">
                       <label>CVV</label>
                       <input
                         type="text"
@@ -245,6 +250,8 @@ const Rent: React.FC = () => {
                         onChange={(e) => setCvv(e.target.value)}
                       />
                     </div>
+                    </div>
+                   
                   </div>
                 )}
                 <button className="btn btn-primary" onClick={handleRent}>

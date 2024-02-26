@@ -5,6 +5,7 @@ import { Button, Modal } from "react-bootstrap";
 import * as Yup from "yup";
 import { AuthContext } from "../../contexts/AuthContext";
 import { AuthService } from "../../services/AuthService";
+import './Login.css'
 
 
 const Login = () => {
@@ -52,9 +53,9 @@ const Login = () => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <button className="login btn"  onClick={handleShow}>
         Giriş Yap
-      </Button>
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { UserService } from '../../services/UsersService';
 import { UsersModel } from '../../models/responses/UsersModel';
+import './Profile.css'
 
 
 const Profile: React.FC = () => {
@@ -76,21 +77,20 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="profile text-left justify-self-center">
       {userData ? (
-        <div>
+        <div className='profiles'>
           <h2>Profil Sayfası</h2>
-          <div>
-            <label>Ad:</label>
-            <span>{userData.name}</span>
+          <div className='row'>
+            <label>Ad: {userData.name}</label>
+            
           </div>
-          <div>
-            <label>Soyad:</label>
-            <span>{userData.surname}</span>
+          <div className='row'>
+            <label>Soyad: {userData.surname}</label>
+            
           </div>
-          <div>
-            <label>Telefon Numarası:</label>
-            {phoneNumberEditMode ? (
+          <div className='row'>
+            <label>Telefon Numarası: {phoneNumberEditMode ? (
               <>
                 <input
                   type="text"
@@ -104,11 +104,11 @@ const Profile: React.FC = () => {
                 <span>{userData.gsm}</span>
                 <button onClick={handlePhoneNumberChange}>Değiştir</button>
               </>
-            )}
+            )}</label>
+            
           </div>
-          <div>
-            <label>Email:</label>
-            {emailEditMode ? (
+          <div className='row'>
+            <label>Email:{emailEditMode ? (
               <>
                 <input
                   type="email"
@@ -122,13 +122,14 @@ const Profile: React.FC = () => {
                 <span>{userData.email}</span>
                 <button onClick={handleEmailChange}>Değiştir</button>
               </>
-            )}
+            )}</label>
+            
           </div>
-          <div>
+          <div className='row'>
             <button onClick={handlePasswordChange}>Şifre Değiştir</button>
           </div>
           {passwordEditMode && (
-            <div>
+            <div className='row'>
               <input
                 type="password"
                 placeholder="Yeni Şifre"

@@ -23,33 +23,36 @@ const FilterCarCard: React.FC<FilterCarCardProps> = ({ car }) => {
   };
 
   return (
-    <div className="card card--car card--car--new offers__card vehicleCard">
-      <div className="vehicle-card-header-div">
+    <div className="filterCard">
+      <div className="filter-card-header-div">
         <h4 className="text-style text-style--h3 text-style--h3-xl card__title">
           {car.modelResponse.name}
         </h4>
       </div>
-      <div className="vehicle-card-img-container">
+      <div className="filter-card-img-container">
         <img src={car.imagePath} alt={car.modelResponse.name} />
       </div>
       <div className="content-container">
-        <div className="vehicle-card-description-container">
+        <div className="filter-card-description-container">
           <p className="card-text"> <FaCalendarTimes/> Year: {car.year}</p>
           <p className="card-text"><IoIosSpeedometer/> Kilometer: {car.kilometer}</p>
           <p className="card-text"><FaMoneyBill/> Daily Price: {car.dailyPrice}</p>
           <p className="card-text"><IoIosColorPalette/> Color: {car.colorResponse.name}</p>
         </div>
         {authContext.isAuthenticated ? (
-          <Link className="btn btn-success" to={`/rent/${car.id}`} onClick={handleRent}>
+           <div className="filter-card-btn-container">
+          <Link className="btn" to={`/rent/${car.id}`} onClick={handleRent}>
             Hemen Kirala
           </Link>
-        ) : (
-          <button className="btn btn-success" onClick={handleRent}>
+          </div>
+        ) : ( <div className="filter-card-btn-container">
+          <button className="btn" onClick={handleRent}>
             Hemen Kirala
           </button>
+          </div>
         )}
       </div>
-      {showLoginModal && <Login />}
+      
     </div>
   );
 };

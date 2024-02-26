@@ -132,7 +132,7 @@ const CarsPage: React.FC = () => {
 
       <div className="row">
         {filteredCars.map((car: any) => (
-          <div key={car.id} className="col-md-4 mb-4">
+          <div key={car.id} className="col-md-4 mb-4 bg-transparent">
             <FilterCarCard car={car} />
           </div>
         ))}

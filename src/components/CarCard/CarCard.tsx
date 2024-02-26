@@ -11,17 +11,17 @@ interface CarCardProps {
 
 const CarCard: React.FC<CarCardProps> = ({ car }) => {
   return (
-    <div className="card card--car card--car--new offers__card vehicleCard">
+    <div className="vehicleCard">
       <div className="vehicle-card-header-div">
-        <h4 className="text-style text-style--h3 text-style--h3-xl card__title">
+        <h4 className="text">
           {car.modelResponse.name}
         </h4>
       </div>
       <div className="vehicle-card-img-container">
         <img src={car.imagePath} alt={car.modelResponse.name} />
       </div>
-      <div className="content-container">
-        <div className="vehicle-card-description-container">
+      <div className="content-container" >
+        <div className="vehicle-card-description-container ">
           <p className="card-text">
             <FaCalendarTimes  /> Year: {car.year}</p>
           <p className="card-text"> <IoIosSpeedometer /> Kilometer: {car.kilometer}</p>

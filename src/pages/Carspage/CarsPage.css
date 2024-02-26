@@ -18,12 +18,15 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 75%;
+    width: 80%;
     
     
   }
   .container .d-flex .input-group{
-    margin-right: 10px;
+   width: 100%;
+   margin-right: 5px;
+   
+
   }
   .container .d-flex .input-group-prepend{
     display: flex;
@@ -32,17 +35,31 @@
     
   }
   .container .d-flex .input-group-prepend .input-group-text{
-    background-color: var(--secondaryColor);
-    color: var(--primaryColor);
+    background-color: #cecdc9;
+    box-shadow: 0 1px 2px;
+    color: var(--blackColor);
     
+    font-weight: 500;
   
     
   }
   .container .d-flex .custom-select{
-    background-color: var(--primaryColor);
-    color: var(--whiteColor);
+   
+    box-shadow: 0 1px 2px;
     border-radius: 8px;
   }
+  .container .d-flex .input-group input{
+    box-shadow: 0 1px 2px;
+    
+    }
+    .container .d-flex .input-group button{
+      box-shadow: 0 1px 2px;
+      background-color: transparent;
+      border-radius: 8px;
+      
+      
+      }
   .center-container {
+    
     text-align: center;
   }

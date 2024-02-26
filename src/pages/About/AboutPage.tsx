@@ -11,8 +11,8 @@ const About: React.FC = () => {
   return (
     <div className="team-container">
     {peopleData.map((person) => (
-      <div key={person.id} className="person-card" style={{ width: "100%" }}>
-        <img src={person.image} alt={person.name} style={{ width: "100%" }} />
+      <div key={person.id} className="person-card" >
+        <img src={person.image} alt={person.name}  />
         <div>
           <h2>{person.name}</h2>
           <p style={{ whiteSpace: "pre-wrap" }}>{person.about}</p>
