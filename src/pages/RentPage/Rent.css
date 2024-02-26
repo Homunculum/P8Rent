@@ -4,7 +4,7 @@
   padding: 8rem 8rem;
 }
 .container .row{
-  display: inline-grid;
+  /* display: inline-grid; */
   grid-template-columns: 1fr 1fr;
 }
 .container .row .payment .card{
