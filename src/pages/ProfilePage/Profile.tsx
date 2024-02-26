@@ -82,15 +82,15 @@ const Profile: React.FC = () => {
         <div className='profiles'>
           <h2>Profil Sayfası</h2>
           <div className='row'>
-            <label>Ad: {userData.name}</label>
+            <label>Ad:&nbsp; {userData.name}</label>
             
           </div>
           <div className='row'>
-            <label>Soyad: {userData.surname}</label>
+            <label>Soyad:&nbsp; {userData.surname}</label>
             
           </div>
           <div className='row'>
-            <label>Telefon Numarası: {phoneNumberEditMode ? (
+            <label>Telefon Numarası:&nbsp; {phoneNumberEditMode ? (
               <>
                 <input
                   type="text"
@@ -108,7 +108,7 @@ const Profile: React.FC = () => {
             
           </div>
           <div className='row'>
-            <label>Email:{emailEditMode ? (
+            <label>Email:&nbsp;{emailEditMode ? (
               <>
                 <input
                   type="email"

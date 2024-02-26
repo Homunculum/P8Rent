@@ -11,28 +11,43 @@
     font-weight: 500;
     border-radius: 0.5rem;
     font-size: 50px;
+    text-shadow: 0 1px 1px rgb(218, 216, 216);
 }
 .container .form Form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: start;
-    width:24rem;   
-    color: var(--whiteColor);  
+    width:24rem;  
+    
+    color: var(--blackColor);  
+}
+.container .form Form input{
+    
 }
 .container .form .message{
     padding-bottom: 2rem;
+    
+}
+.container .form .message textarea{
+    box-shadow: 0 1px 2px;
+    
 }
 .container .form button{
     width: 100%;
     border: none;
     outline: none;
-    background-color: var(--secondaryColor);
-    color: var(--whiteColor);
+    background-color: transparent;
+    color: var(--blackColor);
     border-radius: 0.5rem;
     font-size: 18px;
     padding: 0.25rem 2rem;
     font-weight: 500;
+    box-shadow: 0 1px 2px;
 }
 
+.container .form button:hover{
+background-color:rgb(161, 153, 142); 
+color: var(--whiteColor);
 
+}
