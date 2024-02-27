@@ -44,16 +44,16 @@ const CartPage = () => {
 
   return (
     <div className='container'>
-      <h1>Aktif Kiralamalar</h1>
+      <h1>Aktive Rents</h1>
       <table>
         <thead>
           <tr>
-            <th>Araba Adı</th>
-            <th>Plaka</th>
-            <th>Günlük Fiyat</th>
-            <th>Başlangıç Tarihi</th>
-            <th>Bitiş Tarihi</th>
-            <th>Başlangıç Kilometresi</th>
+            <th>Car Name</th>
+            <th>Plate</th>
+            <th>Daily Price</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Start Kilometer</th>
           </tr>
         </thead>
         <tbody>
@@ -70,16 +70,16 @@ const CartPage = () => {
         </tbody>
       </table>
 
-      <h1>Geçmiş Kiralamalar</h1>
+      <h1>Past Rents</h1>
       <table>
         <thead>
           <tr>
-            <th>Araba Adı</th>
-            <th>Plaka</th>
-            <th>Günlük Fiyat</th>
-            <th>Başlangıç Tarihi</th>
-            <th>Bitiş Tarihi</th>
-            <th>Başlangıç Kilometresi</th>
+            <th>Car Name</th>
+            <th>Plate</th>
+            <th>Daily Price</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Start Kilometer</th>
           </tr>
         </thead>
         <tbody>
