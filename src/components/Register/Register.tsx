@@ -1,4 +1,3 @@
-// Register.tsx
 import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
 import FormikInput from '../FormikInput/FormikInput';
