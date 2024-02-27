@@ -18,7 +18,7 @@
 }
 
 .vehicleDetails .vehicle-details-header-div h4 {
-  color: var(--whiteColor);
+  color: var(--blackColor);
 }
 
 .vehicleDetails .vehicle-details-img-container {
@@ -48,7 +48,7 @@
 }
 
 .vehicleDetails .details-text {
-  color: var(--whiteColor);
+  color: var(--blackColor);
   
   flex-direction: row;
   justify-content: space-around;

@@ -1,0 +1,6 @@
+@import url('../../components/Navbar/Navbar.css');
+.register {
+    background-color: transparent;
+    border: none;
+    color: black;
+}

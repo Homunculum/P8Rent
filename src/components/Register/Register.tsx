@@ -5,7 +5,7 @@ import { Button, Modal, Alert } from 'react-bootstrap';
 import * as Yup from 'yup';
 import { UsersModel } from '../../models/responses/UsersModel';
 import { AuthService } from '../../services/AuthService';
-
+import './Register.css'
 
 const Register: React.FC = () => {
     const [show, setShow] = useState(false);
@@ -60,9 +60,9 @@ const Register: React.FC = () => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleRegisterClick}>
+            <button className='register' onClick={handleRegisterClick}>
                 Kayıt Ol
-            </Button>
+            </button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -82,7 +82,7 @@ const Register: React.FC = () => {
                                 <FormikInput type="text" label="Telefon" name="gsm" />
                                 <FormikInput type="email" label="Email Adresi" name="email" />
                                 <FormikInput type="password" label="Şifre" name="password" />
-                                <Button variant="primary" type="submit" disabled={isSubmitting}>
+                                <Button  type="submit" disabled={isSubmitting}>
                                     {isSubmitting ? 'Kayıt Yapılıyor...' : 'Kayıt Ol'}
                                 </Button>
                             </Form>

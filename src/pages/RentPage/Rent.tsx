@@ -120,14 +120,14 @@ const Rent: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="rent-container">
       <h1 className="text-center">Rent Car</h1>
       {car && (
         <div className="row">
           <div className="car">
             <div className="card">
               <div>
-                <div className="vehicle-details-header-div">
+                <div className="vehicle-name">
                   <h4 className="text-style ">
                     {car.modelResponse.name}
                   </h4>
