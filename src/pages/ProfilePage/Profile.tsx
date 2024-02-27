@@ -80,29 +80,29 @@ const Profile: React.FC = () => {
     <div className="profile text-left justify-self-center">
       {userData ? (
         <div className='profiles'>
-          <h2>Profil Sayfası</h2>
+          <h2>Profile Page</h2>
           <div className='row'>
-            <label>Ad:&nbsp; {userData.name}</label>
+            <label>Name:&nbsp; {userData.name}</label>
             
           </div>
           <div className='row'>
-            <label>Soyad:&nbsp; {userData.surname}</label>
+            <label>Surname:&nbsp; {userData.surname}</label>
             
           </div>
           <div className='row'>
-            <label>Telefon Numarası:&nbsp; {phoneNumberEditMode ? (
+            <label>Phone:&nbsp; {phoneNumberEditMode ? (
               <>
                 <input
                   type="text"
                   value={newPhoneNumber}
                   onChange={(e) => setNewPhoneNumber(e.target.value)}
                 />
-                <button onClick={handlePhoneNumberSave}>Kaydet</button>
+                <button onClick={handlePhoneNumberSave}>Save</button>
               </>
             ) : (
               <>
                 <span>{userData.gsm}</span>
-                <button onClick={handlePhoneNumberChange}>Değiştir</button>
+                <button onClick={handlePhoneNumberChange}>Change</button>
               </>
             )}</label>
             
@@ -115,40 +115,40 @@ const Profile: React.FC = () => {
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
                 />
-                <button onClick={handleEmailSave}>Kaydet</button>
+                <button onClick={handleEmailSave}>Save</button>
               </>
             ) : (
               <>
                 <span>{userData.email}</span>
-                <button onClick={handleEmailChange}>Değiştir</button>
+                <button onClick={handleEmailChange}>Change</button>
               </>
             )}</label>
             
           </div>
           <div className='row'>
-            <button onClick={handlePasswordChange}>Şifre Değiştir</button>
+            <button onClick={handlePasswordChange}>Password change</button>
           </div>
           {passwordEditMode && (
             <div className='row'>
               <input
                 type="password"
-                placeholder="Yeni Şifre"
+                placeholder="New Password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
               <input
                 type="password"
-                placeholder="Yeni Şifre Tekrar"
+                placeholder="New Password Repeat"
                 value={confirmNewPassword}
                 onChange={(e) => setConfirmNewPassword(e.target.value)}
               />
-              <button onClick={handlePasswordSave}>Kaydet</button>
+              <button onClick={handlePasswordSave}>Save</button>
             </div>
           )}
          
         </div>
       ) : (
-        <p>Profil bilgileri yükleniyor...</p>
+        <p>Loading profile</p>
       )}
     </div>
   );
