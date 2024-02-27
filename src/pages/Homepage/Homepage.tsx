@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
   const [cars, setCars] = useState<CarModel[]>([]);
   const history = useNavigate();
   
-  const { setFilterDates } = useContext(AuthContext); // setFilterDates'i AuthContext'ten alın
+  const { setFilterDates } = useContext(AuthContext); 
 
   const addDays = (date: Date, days: number) => {
     const newDate = new Date(date);
@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
     const startDateString = filterStartDate.toISOString().split('T')[0];
     const endDateString = filterEndDate.toISOString().split('T')[0];
     
-    setFilterDates(startDateString, endDateString); // Tarihleri AuthContext'e kaydedin
+    setFilterDates(startDateString, endDateString); 
     
     history('/cars');
   };
