@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Form, Formik } from "formik";
 import FormikInput from "../FormikInput/FormikInput";
 import { Button, Modal } from "react-bootstrap";
@@ -6,24 +6,21 @@ import * as Yup from "yup";
 import { AuthContext } from "../../contexts/AuthContext";
 import { AuthService } from "../../services/AuthService";
 import './Login.css'
-
-
+import Register from "../Register/Register"; 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
- 
   const authContext: any = useContext(AuthContext);
-  
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  
   const initialValues = {
     email: "",
     password: "",
   };
 
-  
   const validationSchema = Yup.object({
     email: Yup.string()
       .required("Email alanı zorunludur.")
@@ -38,24 +35,32 @@ const Login = () => {
   const handleSubmit = async (values: any, actions: any) => {
     try {
       const { email, password } = values;
-     
       const { accessToken, id } = await AuthService.login(email, password);
-  
       authContext.setIsAuthenticated(true, id);
-      
       handleClose();
       actions.setSubmitting(false);
+      toast.success('Giriş başarıyla tamamlandı!', {
+        position: 'top-right',
+        autoClose: 3000,
+       
+    });
     } catch (error) {
-      console.error(error);
+      toast.error('Hatalı bilgiler', {
+        position: 'top-right',
+        autoClose: 3000,
+       
+    });
       actions.setSubmitting(false);
     }
   };
 
   return (
     <>
-      <button className="login btn"  onClick={handleShow}>
+      <button className="login btn" onClick={handleShow}>
         Giriş Yap
       </button>
+
+       
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -69,18 +74,21 @@ const Login = () => {
           >
             {({ isSubmitting }) => (
               <Form>
-               
                 <FormikInput type="email" label="Email Adresi" name="email" />
                 <FormikInput type="password" label="Şifre" name="password" />
-                
-                <Button variant="primary" type="submit" disabled={isSubmitting}>
+                <button className="login btn" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Giriş Yapılıyor...' : 'Giriş Yap'}
-                </Button>
+                </button>
+                <button className="register btn" type="submit">
+                <Register />
+                </button>
+                
               </Form>
             )}
           </Formik>
         </Modal.Body>
       </Modal>
+      <ToastContainer />
     </>
   );
 };

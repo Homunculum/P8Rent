@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { IoIosCloseCircle, IoIosMenu } from "react-icons/io";
@@ -6,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import {  NavDropdown } from "react-bootstrap";
 import Login from "../Login/Login";
-import Register from "../Register/Register";
+
 
 
 const Navbar: React.FC = () => {
@@ -84,9 +83,7 @@ const Navbar: React.FC = () => {
              <li className="text btn">
                   <Login/>
                 </li>
-                <li className="text btn">
-                  <Register/>
-                </li>
+               
             </>
           )}
           <IoIosMenu className="icon toggleNavbarIcon" onClick={showNavbar} />
