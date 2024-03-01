@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
 
   return (
   <div className="container">
-  <h1 className='text-center'>Car Filter</h1>
+  
   <div className='filter-card-container'>
     <div className="card" >
       <div className='date-input-container'>

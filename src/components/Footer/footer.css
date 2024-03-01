@@ -4,6 +4,7 @@
     position: re;
     bottom: 0;
     width: 100%;
+   
     
   }
   .footer .footerContainer {
@@ -11,6 +12,8 @@
     background: var(--greyColor);
     border-radius: 10px;
     gap: 1.5rem;
+    background-color: rgb(182, 177, 177);
+    color: black;
     
   }
   .footer .footerContainer .footerMenuDiv{
@@ -34,7 +37,7 @@
     
   }
   .footer .footerContainer .singleGrid .footerUl .footerLi {
-    color: var(--textColor);
+    color: black;
     align-items: start;
     text-align: start;
   }
@@ -44,7 +47,7 @@
     transition: 0.3s;
   }
   .footer .footerContainer .singleGrid .footerUl .footerLi a {
-    color: var(--textColor);
+    color: black;
     text-align: start;
   }
   .footer .lowerSection {

@@ -32,7 +32,7 @@ const Register: React.FC = () => {
   const validationSchema = Yup.object({
     name: Yup.string().required("Name is required."),
     surname: Yup.string().required("Surname is required."),
-    gsm: Yup.number()
+    gsm: Yup.string()
       .required("Phone number is required.")
       .min(10, "Please enter a 10-digit number without leading zeros."),
 
@@ -93,7 +93,7 @@ const Register: React.FC = () => {
               <Form>
                 <FormikInput type="text" label="Name" name="name" />
                 <FormikInput type="text" label="Surname" name="surname" />
-                <FormikInput type="number" label="Phone" name="gsm" />
+                <FormikInput type="text" label="Phone" name="gsm" />
                 <FormikInput type="email" label="Email Address" name="email" />
                 <FormikInput type="password" label="Password" name="password" />
                 <FormikInput type="password" label="Confirm Password" name="confirmPassword" />

@@ -32,5 +32,19 @@ export const UserService = {
       throw error;
     }
   },
+  updateName: async (id: number, newName: string): Promise<void> => {
+    try {
+      await axios.put(`${BASE_URL}/${id}/updateName`, { name: newName });
+    } catch (error) {
+      throw error;
+    }
+  },
+  updateSurname: async (id: number, newSurname: string): Promise<void> => {
+    try {
+      await axios.put(`${BASE_URL}/${id}/updateSurname`, { surname: newSurname });
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
