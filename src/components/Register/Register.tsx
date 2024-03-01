@@ -25,21 +25,26 @@ const Register: React.FC = () => {
     gsm: "",
     email: "",
     password: "",
+    confirmPassword: "",
     roles: ["{USER}"],
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("Ad alanı zorunludur."),
-    surname: Yup.string().required("Soyad alanı zorunludur."),
-    gsm: Yup.number().required("Telefon alanı zorunludur.")
-    .min(10, "Başında 0 olmadan 10 haneli olarak giriniz"),
-    
+    name: Yup.string().required("Name is required."),
+    surname: Yup.string().required("Surname is required."),
+    gsm: Yup.number()
+      .required("Phone number is required.")
+      .min(10, "Please enter a 10-digit number without leading zeros."),
+
     email: Yup.string()
-      .required("Email alanı zorunludur.")
-      .email("Geçerli bir email adresi giriniz"),
+      .required("Email is required.")
+      .email("Please enter a valid email address."),
     password: Yup.string()
-      .required("Şifre alanı zorunludur.")
-      .min(8, "En az 8 haneli olmak zorunda"),
+      .required("Password is required.")
+      .min(8, "Password must be at least 8 characters long."),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password")], "Passwords must match.")
+      .required("Please confirm your password."),
   });
 
   const handleRegisterClick = () => {
@@ -48,22 +53,21 @@ const Register: React.FC = () => {
 
   const handleRegisterSubmit = async (values: UsersModel, actions: any) => {
     try {
-        const response = await AuthService.register(values);
-        console.log(response.data);
-        handleClose();
-        toast.success('Kayıt başarıyla tamamlandı!', {
-            position: 'top-right',
-            autoClose: 3000,
-           
-        });
-        actions.setSubmitting(false);
+      const response = await AuthService.register(values);
+      console.log(response.data);
+      handleClose();
+      toast.success("Registration completed successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      actions.setSubmitting(false);
     } catch (error: any) {
       if (error.response) {
         toast.error(error.response.data.message, {
           position: "top-right",
           autoClose: 2000,
         });
-      } 
+      }
       actions.setSubmitting(false);
     }
   };
@@ -71,12 +75,12 @@ const Register: React.FC = () => {
   return (
     <>
       <button className="register" onClick={handleRegisterClick}>
-        Kayıt Ol
+        Register
       </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Kayıt Ol</Modal.Title>
+          <Modal.Title>Register</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -85,21 +89,24 @@ const Register: React.FC = () => {
             validationSchema={validationSchema}
             onSubmit={handleRegisterSubmit}
           >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, errors, touched }) => (
               <Form>
-                <FormikInput type="text" label="Ad" name="name" />
-                <FormikInput type="text" label="Soyad" name="surname" />
-                <FormikInput type="number" label="Telefon" name="gsm" />
-                <FormikInput type="email" label="Email Adresi" name="email" />
-                <FormikInput type="password" label="Şifre" name="password" />
+                <FormikInput type="text" label="Name" name="name" />
+                <FormikInput type="text" label="Surname" name="surname" />
+                <FormikInput type="number" label="Phone" name="gsm" />
+                <FormikInput type="email" label="Email Address" name="email" />
+                <FormikInput type="password" label="Password" name="password" />
+                <FormikInput type="password" label="Confirm Password" name="confirmPassword" />
+                {errors.confirmPassword && touched.confirmPassword && (
+                  <div className="error-message">{errors.confirmPassword}</div>
+                )}
                 <Button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Kayıt Yapılıyor..." : "Kayıt Ol"}
+                  {isSubmitting ? "Registering..." : "Register"}
                 </Button>
               </Form>
             )}
           </Formik>
         </Modal.Body>
-        
       </Modal>
       <ToastContainer />
     </>
