@@ -1,25 +1,29 @@
 .profile{
-    display: grid;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 10rem 10rem;
+    width: calc(100vw / 3);
+   
     
 }
 .profile .profiles{
     display: table-row;
-    align-items: start;
     padding: 5px;
     justify-self: center;
 }
 .profile .profiles .row{
-    display: flex; 
-  align-items: center;
+    display: flex;
+   align-items: center;
+   gap: 10px;
   margin-bottom: 10px;
 }
-.profile .profiles .row label{
+.profile .profiles .row input{
     display: flex;
-    flex-grow: 1;
+    flex: 1;
     justify-content: flex-start; 
     text-transform: capitalize;
+    margin-right: 10px;
  
 
 }
@@ -30,7 +34,28 @@
     background-color: transparent;
     border-radius: 8px;
     box-shadow: 0 1px 2px;
-   
-    
-    
+    width: 80px;
+    margin-left: 10px;    
 }
+.profile .profiles .pass{
+    display: flex;
+    
+   
+}
+.profile .profiles .pass button{
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px;
+}
+.profile .profiles .email{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.profile .profiles .email button{
+    background-color: transparent;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px;
+}
+

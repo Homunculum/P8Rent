@@ -13,11 +13,8 @@
 
 
 .dropdown-menu {
-  background-color: transparent;
+  background-color: #cecdc9;
   border: none;
-  
-  
-  width: 190px;
 }
 
 .dropdown-menu .text {
@@ -28,6 +25,10 @@
 }
 
 @media screen and (max-width: 425px) {
+  .header{
+    height: 10%;
+  }
+  
   .header .logoDiv {
    
     width: 100px;
@@ -41,8 +42,8 @@
   }
   .navbar {
     position: absolute;
-    background: var(--secondaryColor);
-    width: 50%;
+    background-color: #cecdc9;
+    width: 25%;
     top: -100rem;
     right: 50%;
     left: 50%;
@@ -81,14 +82,14 @@
   }
   .menu .listItem a {
     font-size: 15px;
-   
+    color: black;
     text-align: center;
   }
   .menu .listItem a:hover {
     color: var(--whiteColor);
   }
   .menu .listItem:hover {
-    background: #cecdc9;
+    background: rgb(119, 113, 113);
    
     transition: 0.3s ease;
   }
@@ -166,6 +167,9 @@
 
 
 @media screen and (min-width: 770px) {
+  .header{
+    height: 10%;
+  }
   .header .navbar .closeIcon {
     display: none;
   }

@@ -99,7 +99,7 @@
   @media screen and (max-width: 425px) {
     .filter-card-container{
       display: flex;
-      background-color: rgb(72, 107, 121);
+     
       padding-bottom: 1rem;
       width: 100%;
       border-radius: 2rem;
@@ -113,7 +113,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rgb(72, 107, 121);
+     
     }
     .filter-card-container .card .date-input-container{
     
@@ -145,4 +145,16 @@
       border: none;
     }
     
+  }
+  @media screen and (max-width: 770px) {
+    .filter-card-container .card{
+      
+      padding: 1rem;
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     
+    }
   }

@@ -152,7 +152,7 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div className="profile text-left justify-self-center">
+    <div className="profile">
       {userData ? (
         <div className='profiles'>
           <h2>Profile Page</h2>
@@ -192,7 +192,7 @@ const Profile: React.FC = () => {
               <button onClick={handlePhoneNumberChange}>Change</button>
             )}
           </div>
-          <div className='row'>
+          <div className='email'>
             <input
               type="email"
               value={emailEditMode ? newEmail : userData.email}
@@ -204,11 +204,11 @@ const Profile: React.FC = () => {
               <button onClick={handleEmailChange}>Change</button>
             )}
           </div>
-          <div className='row'>
+          <div className='pass'>
             <button onClick={handlePasswordChange}>Change Password</button>
           </div>
           {passwordEditMode && (
-            <div className='row'>
+            <div className='pass-row'>
               <input
                 type="password"
                 placeholder="New Password"
